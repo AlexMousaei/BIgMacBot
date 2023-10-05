@@ -1,0 +1,212 @@
+{Unrecognized function or variable 'MODE'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', 'C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\main.m', 10)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\main.m',10,0)">line 10</a>)
+logMessage('STARTING MODE %i', MODE);
+} 
+main
+{Unrecognized function or variable 'STARTING'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', 'C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\main.m', 10)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\main.m',10,0)">line 10</a>)
+logMessage(STARTING);
+} 
+main
+[04-Oct-2023 23:55:22.345] STARTING
+
+[04-Oct-2023 23:55:22.367] Using default NewRobot base transform. 
+
+
+[04-Oct-2023 23:55:22.371] Creating Model. 
+
+
+main
+[Warning: The following error was caught while executing
+'RobotBaseClass' class destructor:
+Operands to the logical AND (&&) and OR (||) operators must be
+convertible to logical scalar values. Use the ANY or ALL functions to
+reduce operands to logical scalar values.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('RobotBaseClass/delete', 'C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\rvctools\robot\UTS\Foundation\RobotBaseClass.m', 81)" style="font-weight:bold">RobotBaseClass/delete</a> (<a href="matlab: opentoline('C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\rvctools\robot\UTS\Foundation\RobotBaseClass.m',81,0)">line 81</a>)
+            if ishandle(self.figure_h) && ishandle(self.axis_h)
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', 'C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\main.m', 1)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\main.m',1,0)">line 1</a>)
+clear all;] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', 'C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\main.m', 1)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\main.m',1,0)">line 1</a>)] 
+[04-Oct-2023 23:57:44.842] STARTING
+
+[04-Oct-2023 23:57:44.976] Using default LinearUR3 base transform. 
+
+
+[04-Oct-2023 23:57:44.979] Creating Model. 
+
+
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('RobotBaseClass/PlotAndColourRobot')" style="font-weight:bold">RobotBaseClass/PlotAndColourRobot</a>
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('LinearUR3', 'C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\LinearUR3\LinearUR3.m', 22)" style="font-weight:bold">LinearUR3</a> (<a href="matlab: opentoline('C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\LinearUR3\LinearUR3.m',22,0)">line 22</a>)
+            self.PlotAndColourRobot();
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', 'C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\main.m', 14)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\main.m',14,0)">line 14</a>)
+r1 = LinearUR3();
+} 
+[05-Oct-2023 00:04:12.690] STARTING
+
+[05-Oct-2023 00:04:12.886] Using default LinearUR3 base transform. 
+
+
+[05-Oct-2023 00:04:12.889] Creating Model. 
+
+
+[05-Oct-2023 00:04:21.437] Creating Model. 
+
+
+[Warning: The following error was caught while executing
+'RobotBaseClass' class destructor:
+Operands to the logical AND (&&) and OR (||) operators must be
+convertible to logical scalar values. Use the ANY or ALL functions to
+reduce operands to logical scalar values.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('RobotBaseClass/delete', 'C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\rvctools\robot\UTS\Foundation\RobotBaseClass.m', 81)" style="font-weight:bold">RobotBaseClass/delete</a> (<a href="matlab: opentoline('C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\rvctools\robot\UTS\Foundation\RobotBaseClass.m',81,0)">line 81</a>)
+            if ishandle(self.figure_h) && ishandle(self.axis_h)
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NewRobot', 'C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\NewRobot\NewRobot.m', 13)" style="font-weight:bold">NewRobot</a> (<a href="matlab: opentoline('C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\NewRobot\NewRobot.m',13,0)">line 13</a>)
+            if nargin < 1 % Nothing passed
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', 'C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\main.m', 16)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\main.m',16,0)">line 16</a>)
+r2 = NewRobot(NewRobotBaseTr);] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NewRobot', 'C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\NewRobot\NewRobot.m', 13)" style="font-weight:bold">NewRobot</a> (<a href="matlab: opentoline('C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\NewRobot\NewRobot.m',13,0)">line 13</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', 'C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\main.m', 16)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\main.m',16,0)">line 16</a>)] 
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('RTBPose/mtimes')" style="font-weight:bold"> * </a>
+operands to * cannot be composed
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NewRobot', 'C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\NewRobot\NewRobot.m', 21)" style="font-weight:bold">NewRobot</a> (<a href="matlab: opentoline('C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\NewRobot\NewRobot.m',21,0)">line 21</a>)
+            self.model.base = self.model.base.T * baseTr;
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', 'C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\main.m', 16)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\main.m',16,0)">line 16</a>)
+r2 = NewRobot(NewRobotBaseTr);
+} 
+main
+[05-Oct-2023 00:05:25.238] STARTING
+
+[05-Oct-2023 00:05:25.425] Using default LinearUR3 base transform. 
+
+
+[05-Oct-2023 00:05:25.427] Creating Model. 
+
+
+[05-Oct-2023 00:05:33.365] Creating Model. 
+
+
+main
+[Warning: The following error was caught while executing
+'RobotBaseClass' class destructor:
+Operands to the logical AND (&&) and OR (||) operators must be
+convertible to logical scalar values. Use the ANY or ALL functions to
+reduce operands to logical scalar values.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('RobotBaseClass/delete', 'C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\rvctools\robot\UTS\Foundation\RobotBaseClass.m', 81)" style="font-weight:bold">RobotBaseClass/delete</a> (<a href="matlab: opentoline('C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\rvctools\robot\UTS\Foundation\RobotBaseClass.m',81,0)">line 81</a>)
+            if ishandle(self.figure_h) && ishandle(self.axis_h)
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', 'C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\main.m', 1)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\main.m',1,0)">line 1</a>)
+clear all;] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', 'C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\main.m', 1)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\main.m',1,0)">line 1</a>)] 
+[05-Oct-2023 00:08:10.280] STARTING
+
+[05-Oct-2023 00:08:10.415] Using default LinearUR3 base transform. 
+
+
+[05-Oct-2023 00:08:10.418] Creating Model. 
+
+
+[05-Oct-2023 00:08:17.976] Creating Model. 
+
+
+main
+[Warning: The following error was caught while
+executing 'RobotBaseClass' class destructor:
+Operands to the logical AND (&&) and OR (||)
+operators must be convertible to logical scalar
+values. Use the ANY or ALL functions to reduce
+operands to logical scalar values.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('RobotBaseClass/delete', 'C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\rvctools\robot\UTS\Foundation\RobotBaseClass.m', 81)" style="font-weight:bold">RobotBaseClass/delete</a> (<a href="matlab: opentoline('C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\rvctools\robot\UTS\Foundation\RobotBaseClass.m',81,0)">line 81</a>)
+            if ishandle(self.figure_h) &&
+            ishandle(self.axis_h)
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', 'C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\main.m', 1)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\main.m',1,0)">line 1</a>)
+clear all;] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', 'C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\main.m', 1)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\main.m',1,0)">line 1</a>)] 
+[05-Oct-2023 00:33:57.374] STARTING
+
+[05-Oct-2023 00:33:57.546] Using default LinearUR3 base transform. 
+
+
+[05-Oct-2023 00:33:57.548] Creating Model. 
+
+
+[05-Oct-2023 00:34:05.482] Creating Model. 
+
+
+main
+[Warning: The following error was caught while
+executing 'RobotBaseClass' class destructor:
+Operands to the logical AND (&&) and OR (||)
+operators must be convertible to logical scalar
+values. Use the ANY or ALL functions to reduce
+operands to logical scalar values.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('RobotBaseClass/delete', 'C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\rvctools\robot\UTS\Foundation\RobotBaseClass.m', 81)" style="font-weight:bold">RobotBaseClass/delete</a> (<a href="matlab: opentoline('C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\rvctools\robot\UTS\Foundation\RobotBaseClass.m',81,0)">line 81</a>)
+            if ishandle(self.figure_h) &&
+            ishandle(self.axis_h)
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', 'C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\main.m', 1)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\main.m',1,0)">line 1</a>)
+clear all;] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', 'C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\main.m', 1)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\Assignment 2\BigMacBot\main.m',1,0)">line 1</a>)] 
+[05-Oct-2023 00:34:35.282] STARTING
+
+[05-Oct-2023 00:34:35.423] Using default LinearUR3 base transform. 
+
+
+[05-Oct-2023 00:34:35.425] Creating Model. 
+
+
+
+self = 
+
+  <a href="matlab:helpPopup LinearUR3" style="font-weight:bold">LinearUR3</a> with properties:
+
+    plyFileNameStem: 'LinearUR3'
+              model: [1×1 SerialLink]
+               name: 'LinearUR320231005T003435545'
+          workspace: [-10 10 -10 10 … ]
+              homeQ: []
+            useTool: 0
+       toolFilename: []
+             toolTr: [4×4 double]
+
+[05-Oct-2023 00:34:44.124] Creating Model. 
+
+
+uiopen('C:\Users\Bruce\Desktop\RoboticsLabTask2-main\Code\Collision\Col_LinearUR3\Col_Linear_UR3.m',1)
+uiopen('C:\Users\Bruce\Desktop\RoboticsLabTask2-main\Code\Collision\Functions\CheckCollision.m',1)
+uiopen('C:\Users\Bruce\Desktop\RoboticsLabTask2-main\Code\Collision\Functions\LinePlaneIntersection.m',1)
+uiopen('C:\Users\Bruce\Desktop\RoboticsLabTask2-main\Code\Collision\Functions\RectangularPrism.m',1)
+uiopen('C:\Users\Bruce\Desktop\RoboticsLabTask2-main\Code\Collision\Collision_UR3.m',1)
+run('C:\Users\Bruce\Desktop\RoboticsLabTask2-main\Code\E-stop button\ES_GUI.mlapp')
+[Warning: File 'Estop Picture.png' is not on the MATLAB or specified path.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.ui.control.internal.model.PropertyHandling.displayWarning', 'C:\Program Files\MATLAB\R2023a\toolbox\matlab\uicomponents\uicomponents\+matlab\+ui\+control\+internal\+model\@PropertyHandling\displayWarning.m', 11)" style="font-weight:bold">matlab.ui.control.internal.model.PropertyHandling.displayWarning</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023a\toolbox\matlab\uicomponents\uicomponents\+matlab\+ui\+control\+internal\+model\@PropertyHandling\displayWarning.m',11,0)">line 11</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.ui.control.internal.model.mixin.IconableComponent.processIcon', 'C:\Program Files\MATLAB\R2023a\toolbox\matlab\uicomponents\uicomponents\+matlab\+ui\+control\+internal\+model\+mixin\IconableComponent.m', 155)" style="font-weight:bold">matlab.ui.control.internal.model.mixin.IconableComponent.processIcon</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023a\toolbox\matlab\uicomponents\uicomponents\+matlab\+ui\+control\+internal\+model\+mixin\IconableComponent.m',155,0)">line 155</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.ui.control.internal.model.mixin/IconableComponent/set.Icon', 'C:\Program Files\MATLAB\R2023a\toolbox\matlab\uicomponents\uicomponents\+matlab\+ui\+control\+internal\+model\+mixin\IconableComponent.m', 72)" style="font-weight:bold">matlab.ui.control.internal.model.mixin/IconableComponent/set.Icon</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023a\toolbox\matlab\uicomponents\uicomponents\+matlab\+ui\+control\+internal\+model\+mixin\IconableComponent.m',72,0)">line 72</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('ES_GUI/createComponents', 'C:\Users\Bruce\Desktop\RoboticsLabTask2-main\Code\E-stop button\ES_GUI.mlapp', 53)" style="font-weight:bold">ES_GUI/createComponents</a> (<a href="matlab: opentoline('C:\Users\Bruce\Desktop\RoboticsLabTask2-main\Code\E-stop button\ES_GUI.mlapp',53,0)">line 53</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('ES_GUI', 'C:\Users\Bruce\Desktop\RoboticsLabTask2-main\Code\E-stop button\ES_GUI.mlapp', 88)" style="font-weight:bold">ES_GUI</a> (<a href="matlab: opentoline('C:\Users\Bruce\Desktop\RoboticsLabTask2-main\Code\E-stop button\ES_GUI.mlapp',88,0)">line 88</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run', 'C:\Program Files\MATLAB\R2023a\toolbox\matlab\lang\run.m', 91)" style="font-weight:bold">run</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023a\toolbox\matlab\lang\run.m',91,0)">line 91</a>)] 
+[Warning: The following error was caught while executing 'ES_GUI' class destructor:
+Method 'delete' is not defined for class 'ES_GUI' or is removed from MATLAB's search path.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('appdesigner.internal.service.AppManagementService>@(src,e)delete(app)', 'C:\Program Files\MATLAB\R2023a\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m', 196)" style="font-weight:bold">appdesigner.internal.service.AppManagementService>@(src,e)delete(app)</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023a\toolbox\matlab\appdesigner\appdesigner\runtime\+appdesigner\+internal\+service\AppManagementService.m',196,0)">line 196</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('closereq', 'C:\Program Files\MATLAB\R2023a\toolbox\matlab\graphics\closereq.m', 18)" style="font-weight:bold">closereq</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023a\toolbox\matlab\graphics\closereq.m',18,0)">line 18</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.ui.internal.controller.FigureController>@(o,e)this.Model.hgclose()', 'C:\Program Files\MATLAB\R2023a\toolbox\matlab\uitools\uicomponents\components\+matlab\+ui\+internal\+controller\FigureController.m', 533)" style="font-weight:bold">matlab.ui.internal.controller.FigureController>@(o,e)this.Model.hgclose()</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023a\toolbox\matlab\uitools\uicomponents\components\+matlab\+ui\+internal\+controller\FigureController.m',533,0)">line 533</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('internal.Callback.execute', 'C:\Program Files\MATLAB\R2023a\toolbox\shared\testmeaslib\general\+internal\Callback.m', 128)" style="font-weight:bold">internal.Callback.execute</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023a\toolbox\shared\testmeaslib\general\+internal\Callback.m',128,0)">line 128</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.internal.cef/webwindow/onCustomEvent', 'C:\Program Files\MATLAB\R2023a\toolbox\matlab\cefclient\+matlab\+internal\+cef\webwindow.m', 1478)" style="font-weight:bold">matlab.internal.cef/webwindow/onCustomEvent</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023a\toolbox\matlab\cefclient\+matlab\+internal\+cef\webwindow.m',1478,0)">line 1478</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.internal.cef.webwindow>@(source,data)obj.onCustomEvent(data.Type,data.Data)', 'C:\Program Files\MATLAB\R2023a\toolbox\matlab\cefclient\+matlab\+internal\+cef\webwindow.m', 346)" style="font-weight:bold">matlab.internal.cef.webwindow>@(source,data)obj.onCustomEvent(data.Type,data.Data)</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023a\toolbox\matlab\cefclient\+matlab\+internal\+cef\webwindow.m',346,0)">line 346</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlabshared.asyncio.internal/Channel/onCustomEvent', 'C:\Program Files\MATLAB\R2023a\toolbox\shared\asynciolib\+matlabshared\+asyncio\+internal\Channel.m', 538)" style="font-weight:bold">matlabshared.asyncio.internal/Channel/onCustomEvent</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023a\toolbox\shared\asynciolib\+matlabshared\+asyncio\+internal\Channel.m',538,0)">line 538</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlabshared.asyncio.internal.Channel>@(source,data)obj.onCustomEvent(data.Type,data.Data)', 'C:\Program Files\MATLAB\R2023a\toolbox\shared\asynciolib\+matlabshared\+asyncio\+internal\Channel.m', 442)" style="font-weight:bold">matlabshared.asyncio.internal.Channel>@(source,data)obj.onCustomEvent(data.Type,data.Data)</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023a\toolbox\shared\asynciolib\+matlabshared\+asyncio\+internal\Channel.m',442,0)">line 442</a>)] 
+uiopen('C:\Users\Bruce\Desktop\RoboticsLabTask2-main\Code\E-stop button\isEStop.m',1)
