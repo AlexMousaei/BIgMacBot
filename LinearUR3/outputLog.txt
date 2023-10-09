@@ -1,0 +1,77 @@
+[09-Oct-2023 22:04:10.101] STARTING
+
+[Warning: serial will be removed in a future release. Use serialport instead.
+If you are using serial with icdevice, continue using serial in this MATLAB release.] 
+[09-Oct-2023 22:04:15.754] Serial connection initialized on port COM7.
+
+[09-Oct-2023 22:04:15.776] Callback function set for serial data.
+
+[09-Oct-2023 22:04:15.788] Using default LinearUR3 base transform. 
+
+
+[09-Oct-2023 22:04:15.797] Creating Model. 
+
+
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('IRB_910sc')" style="font-weight:bold">IRB_910sc</a>
+Error: <a href="matlab: opentoline('C:\Users\Bruce\Desktop\BigMacBot\Scara_IRB910\IRB_910sc.m',4,10)">File: IRB_910sc.m Line: 4 Column: 10</a>
+Class name and filename must match.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', 'C:\Users\Bruce\Desktop\BigMacBot\main.m', 26)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('C:\Users\Bruce\Desktop\BigMacBot\main.m',26,0)">line 26</a>)
+r2 = IRB_910sc(NewRobotBaseTr);
+} 
+main
+[Warning: instrfind will be removed in a future release. There is no simple replacement for this.] 
+[Warning: instrfind will be removed in a future release. There is no simple replacement for this.] 
+[Warning: instrfind will be removed in a future release. There is no simple replacement for this.] 
+[09-Oct-2023 22:29:44.971] STARTING
+
+[Warning: serial will be removed in a future release. Use serialport instead.
+If you are using serial with icdevice, continue using serial in this MATLAB
+release.] 
+[09-Oct-2023 22:29:50.572] Serial connection initialized on port COM7.
+
+[09-Oct-2023 22:29:50.593] Callback function set for serial data.
+
+[09-Oct-2023 22:29:50.605] Using default LinearUR3 base transform. 
+
+
+[09-Oct-2023 22:29:50.613] Creating Model. 
+
+
+[09-Oct-2023 22:29:59.002] Using default IRB_910sc base transform. 
+
+
+[09-Oct-2023 22:29:59.027] Creating Model. 
+
+
+  <a href="matlab:helpPopup MException" style="font-weight:bold">MException</a> with properties:
+
+    identifier: 'MATLAB:nonExistentField'
+       message: 'Unrecognized field name "red".'
+         cause: {}
+         stack: [3×1 struct]
+    Correction: []
+
+No vertex colours in plyData
+  <a href="matlab:helpPopup MException" style="font-weight:bold">MException</a> with properties:
+
+    identifier: 'MATLAB:nonExistentField'
+       message: 'Unrecognized field name "red".'
+         cause: {}
+         stack: [3×1 struct]
+    Correction: []
+
+Also, no face colours in plyData, so using a default colour: 0.5         0.5         0.5
+[Warning: Error creating or updating Patch
+ Error in value of property  <a href="matlab:matlab.internal.doc.reference.showPropertyHelp('matlab.graphics.primitive.Patch','FaceVertexCData');")">FaceVertexCData</a>
+ Number of colors must equal number of vertices] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('defaulterrorcallback', 'C:\Program Files\MATLAB\R2023a\toolbox\matlab\graphics\objectsystem\defaulterrorcallback.m', 12)" style="font-weight:bold">defaulterrorcallback</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023a\toolbox\matlab\graphics\objectsystem\defaulterrorcallback.m',12,0)">line 12</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('RobotBaseClass/PlotAndColourRobot', 'C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\rvctools\robot\UTS\Foundation\RobotBaseClass.m', 158)" style="font-weight:bold">RobotBaseClass/PlotAndColourRobot</a> (<a href="matlab: opentoline('C:\Users\Bruce\OneDrive - UTS\Spring 23\41013_Industrial_Robotics\rvctools\robot\UTS\Foundation\RobotBaseClass.m',158,0)">line 158</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('IRB_910sc', 'C:\Users\Bruce\Desktop\BigMacBot\Scara_IRB910\IRB_910sc.m', 22)" style="font-weight:bold">IRB_910sc</a> (<a href="matlab: opentoline('C:\Users\Bruce\Desktop\BigMacBot\Scara_IRB910\IRB_910sc.m',22,0)">line 22</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', 'C:\Users\Bruce\Desktop\BigMacBot\main.m', 26)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('C:\Users\Bruce\Desktop\BigMacBot\main.m',26,0)">line 26</a>)] 
+<a href="matlab: opentoline('C:\Users\Bruce\Desktop\BigMacBot\main.m',33,1)">33  </a>logMessage('Main robot control loop started.');
+if system_dependent('IsDebugMode')==1, dbquit; end
+main
+[Warning: instrfind will be removed in a future release. There is no simple replacement for this.] 
+[Warning: instrfind will be removed in a future release. There is no simple replacement for this.] 
+[Warning: instrfind will be removed in a future release. There is no simple replacement for this.] 

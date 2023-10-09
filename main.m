@@ -21,9 +21,9 @@ stateMgr = StateManager();
 % Initialise the serial communication and pass the state manager
 s = serialSetup('COM7', stateMgr);
 
-% r1 = LinearUR3();
-% NewRobotBaseTr = transl(-1.25,0.4,0);
-% r2 = NewRobot(NewRobotBaseTr);
+r1 = LinearUR3();
+NewRobotBaseTr = transl(-1.25,0.4,0);
+r2 = IRB_910sc();
 
 
 
@@ -31,6 +31,7 @@ s = serialSetup('COM7', stateMgr);
 
 % Log that the main control loop has started
 logMessage('Main robot control loop started.');
+
 
 % Robot control loop
 while true
