@@ -2,7 +2,7 @@ clear all;
 clc
 close all;
 
-% Close Open Connections:
+% Close Open COM port Connections for arduino estop
 if ~isempty(instrfind)
     fclose(instrfind);
     delete(instrfind);
