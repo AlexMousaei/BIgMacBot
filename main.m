@@ -2,6 +2,16 @@ clear all;
 clc
 close all;
 
+%Initialise the Robots
+initUR3Pos = transl(0, -0.1, 0.85);
+UR3Bot = LinearUR3(initUR3Pos);
+initScaraPos = transl(-1.75, 0.9, 0.85);
+scaraBot = IRB_910(initScaraPos);
+
+% Load the environment
+wSpace = Workspace();
+wSpace.DisplayEnvironment;
+
 % Close Open COM port Connections for arduino estop
 if ~isempty(instrfind)
     fclose(instrfind);
