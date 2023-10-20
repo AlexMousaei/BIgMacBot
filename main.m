@@ -1,87 +1,76 @@
+
+% Clear MATLAB
 clear all;
-clc
 close all;
+clc
+
+% Declare Global Variables
+global UR3Bot scaraBot qPath1 qPath2 Paths currentPath t currentStep;
 
 %Initialise the Robots
 initUR3Pos = transl(0, -0.1, 0.85);
 UR3Bot = LinearUR3(initUR3Pos);
 initScaraPos = transl(-1.75, 0.9, 0.85);
-scaraBot = IRB_910(initScaraPos);
+scaraBot = IRB_910sc(initScaraPos);
+
+% Setup the Timer
+% Create a timer to animate the robot
+currentStep = 1;
+t = timer('ExecutionMode', 'fixedSpacing', 'Period', 0.01, 'TimerFcn', @robotStep);
 
 % Load the environment
 wSpace = Workspace();
 wSpace.DisplayEnvironment;
 
-% Close Open COM port Connections for arduino estop
-if ~isempty(instrfind)
-    fclose(instrfind);
-    delete(instrfind);
-end
+% Create the E-stopGui
+eStopGUI();
 
-% start logging
-diary('outputLog.txt');
-diary on;
-logMessage('STARTING');
-hold on;
+% Set Target Positions
+targetPos1 = transl(-0.22, 0.72, 1.045);
+targetPos2 = transl(-1.1, 0.4, 0.93);
 
-% add environment set up
+% Setup Waypoints
+qStart = UR3Bot.model.getpos();
+qPick1 = UR3Bot.model.ikcon(targetPos1, qStart);
+qPlace1 = UR3Bot.model.ikcon(targetPos1, qPick1);
+qPath1 = jtraj(qStart, qPick1, 150);
+qPath2 = jtraj(qPick1, qPlace1, 150);
+Paths = {qPath1, qPath2};
+currentPath = 1;
 
-% Initialize the state manager
-stateMgr = StateManager();
-% Initialise the serial communication and pass the state manager
-s = serialSetup('COM7', stateMgr);
+input("Press enter to continue: ", 's');
+start(t);
 
-r1 = LinearUR3();
-NewRobotBaseTr = transl(-1.25,0.4,0);
-r2 = IRB_910sc();
-
-
-
-
-
-% Log that the main control loop has started
-logMessage('Main robot control loop started.');
-
-
-% Robot control loop
-while true
-
-
-
-
-    % Check the emergency stop flag
-    if stateMgr.getState() == State.EmergencyStop
-        % Handle the emergency stop, e.g., safely halt robot operations
-        logMessage('Main loop halted due to emergency stop.');
-
-    end
-    if stateMgr.getState() == State.Active
-        % Handle the emergency stop, e.g., safely halt robot operations
-        logMessage('active.');
-
-    end
-    if stateMgr.getState() == State.Idle
-        % Handle the emergency stop, e.g., safely halt robot operations
-        logMessage('idle.');
-
-    end
-    if stateMgr.getState() == State.Resume
-        % Handle the emergency stop, e.g., safely halt robot operations
-        logMessage('resume.');
-
-    end
-
-    % ...  robot control code here ...
-
-    pause(1)
-
-end
-
-% Cleanup the serial connection
-fclose(s);
-delete(s);
-clear s;
-
-% Log that the main control script has ended
-logMessage('Main script ended.');
+% % Close Open COM port Connections for arduino estop
+% if ~isempty(instrfind)
+%     fclose(instrfind);
+%     delete(instrfind);
+% end
+% 
+% % start logging
+% diary('outputLog.txt');
+% diary on;
+% logMessage('STARTING');
+% hold on;
+% 
+% 
+% % Initialize the state manager
+% stateMgr = StateManager();
+% 
+% % Initialise the serial communication and pass the state manager
+% s = serialSetup('COM7', stateMgr);
+% 
+% % Log that the main control loop has started
+% logMessage('Main robot control loop started.');
+% 
+% 
+% 
+% 
+% % Cleanup the serial connection
+% fclose(s);
+% delete(s);
+% clear s;
+% 
+% % Log that the main control script has ended
+% logMessage('Main script ended.');
 
