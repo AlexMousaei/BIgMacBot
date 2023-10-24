@@ -15,6 +15,7 @@ function robotStep(obj, event)
             currentStep = 1;
             UR3Bot.model.animate(Paths{currentPath}(currentStep, :));
             patties.pattyModel{1}.base = UR3Bot.model.fkine(UR3Bot.model.getpos());
+            patties.pattyModel{1}.animate(0);
             drawnow();
             currentStep = currentStep + 1;
         else

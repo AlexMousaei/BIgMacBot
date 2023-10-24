@@ -20,7 +20,7 @@ classdef IRB_910sc < RobotBaseClass
             self.CreateModel();
             self.model.base = baseTr;
             self.PlotAndColourRobot();
-            axis([-3 3 -3 3 0 3]);
+            axis([-4 4 -4 4 0 4]);
             drawnow();
         end
         function CreateModel(self)
