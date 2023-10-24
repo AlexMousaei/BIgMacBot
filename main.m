@@ -5,7 +5,7 @@ close all;
 clc
 
 % Declare Global Variables
-global UR3Bot scaraBot qPath1 qPath2 Paths currentPath t currentStep;
+global UR3Bot scaraBot qPath1 qPath2 Paths currentPath t currentStep patties;
 
 %Initialise the Robots
 initUR3Pos = transl(0, -0.1, 0.85);
@@ -22,17 +22,20 @@ t = timer('ExecutionMode', 'fixedSpacing', 'Period', 0.01, 'TimerFcn', @robotSte
 wSpace = Workspace();
 wSpace.DisplayEnvironment;
 
+% Add in the burger patties
+patties = Patty();
+
 % Create the E-stopGui
 eStopGUI();
 
 % Set Target Positions
-targetPos1 = transl(-0.22, 0.72, 1.045);
+targetPos1 = transl(0.15, 0.4, 1);
 targetPos2 = transl(-1.1, 0.4, 0.93);
 
 % Setup Waypoints
 qStart = UR3Bot.model.getpos();
 qPick1 = UR3Bot.model.ikcon(targetPos1, qStart);
-qPlace1 = UR3Bot.model.ikcon(targetPos1, qPick1);
+qPlace1 = UR3Bot.model.ikcon(targetPos2, qPick1);
 qPath1 = jtraj(qStart, qPick1, 150);
 qPath2 = jtraj(qPick1, qPlace1, 150);
 Paths = {qPath1, qPath2};

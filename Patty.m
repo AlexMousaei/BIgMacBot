@@ -5,15 +5,15 @@ classdef Patty < handle
     properties (Constant)
         % Constants representing the initial and final positions of the patty in the workspace.
         pattyInitialPositions = [ % Initial positions of patty.
-            0.175, 0.4, 0;
-            0.075, 0.4, 0;
-            -0.025, 0.4, 0;
-            -0.125, 0.4, 0;
-            -0.225, 0.4, 0;
-            0.175, -0.4, 0;
-            0.075, -0.4, 0;
-            -0.025, -0.4, 0;
-            -0.125, -0.4, 0;
+            0.15, 0.4, 1;
+            0.2, 0.4, 1;
+            0.2, 0.5, 1;
+            0.15, 0.5, 1;
+            0.25, 0.5, 1;
+            0.25, 0.45, 1;
+            0.2, 0.45, 1;
+            0.15, 0.45, 1;
+            0.25, 0.4, 1;
             ];
 
         pattyFinalPositions = [ % final positions where the patty should be placed.
@@ -74,7 +74,7 @@ classdef Patty < handle
                 name = 'patty';
             end
             % Read the .ply file which contains the 3D representation of the patty.
-            [faceData, vertexData] = plyread('HalfSizedRedGreenpatty.ply', 'tri');
+            [faceData, vertexData] = plyread('tempPatty.ply', 'tri');
             L1 = Link('alpha', 0, 'a', 0, 'd', 0, 'offset', 0);
             model = SerialLink(L1, 'name', name);
 
