@@ -4,13 +4,19 @@ clear all;
 close all;
 clc
 
+% Close Open COM port Connections for arduino estop
+if ~isempty(instrfind)
+    fclose(instrfind);
+    delete(instrfind);
+end
+
 % Declare Global Variables
 global UR3Bot scaraBot qPath1 qPath2 Paths currentPath t currentStep patties;
 
 %Initialise the Robots
-initUR3Pos = transl(0, -0.1, 0.85);
+initUR3Pos = transl(0, -0.1+1, 0.85);
 UR3Bot = LinearUR3(initUR3Pos);
-initScaraPos = transl(-1.75, 0.9, 0.85);
+initScaraPos = transl(-1.75, 0.9+1, 0.85);
 scaraBot = IRB_910sc(initScaraPos);
 
 % Setup the Timer
@@ -28,6 +34,9 @@ patties = Patty();
 % Create the E-stopGui
 eStopGUI();
 
+% Initialise the serial communication and pass the state manager
+s = serialSetup('COM7');
+
 % Set Target Positions
 targetPos1 = transl(0.15, 0.4, 1);
 targetPos2 = transl(-1.1, 0.4, 0.93);
@@ -44,36 +53,8 @@ currentPath = 1;
 input("Press enter to continue: ", 's');
 start(t);
 
-% % Close Open COM port Connections for arduino estop
-% if ~isempty(instrfind)
-%     fclose(instrfind);
-%     delete(instrfind);
-% end
-% 
-% % start logging
-% diary('outputLog.txt');
-% diary on;
-% logMessage('STARTING');
-% hold on;
-% 
-% 
-% % Initialize the state manager
-% stateMgr = StateManager();
-% 
-% % Initialise the serial communication and pass the state manager
-% s = serialSetup('COM7', stateMgr);
-% 
-% % Log that the main control loop has started
-% logMessage('Main robot control loop started.');
-% 
-% 
-% 
-% 
-% % Cleanup the serial connection
-% fclose(s);
-% delete(s);
-% clear s;
-% 
-% % Log that the main control script has ended
-% logMessage('Main script ended.');
+
+
+
+
 

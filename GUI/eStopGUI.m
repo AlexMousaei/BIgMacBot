@@ -1,9 +1,10 @@
 function eStopGUI()
     global t;
+    global btnHandle; % Declare the global variable
     
     % Create figure and button
     f = figure('Name', 'E-Stop GUI', 'NumberTitle', 'off', 'Position', [100, 100, 200, 100]);
-    btn = uicontrol('Style', 'pushbutton', 'String', 'E-Stop', ...
+    btnHandle = uicontrol('Style', 'pushbutton', 'String', 'E-Stop', ...
                     'Position', [100, 50, 200, 100], ...
                     'Callback', @toggleStop);
 end
