@@ -1,4 +1,5 @@
 function robotStep(obj, event)
+ 
     global UR3Bot Paths currentPath currentStep patties;
 
     switch currentPath
@@ -8,6 +9,7 @@ function robotStep(obj, event)
                 drawnow();
                 currentStep = currentStep + 1;
             else
+                
                 % Reset step and move to next path
                 currentStep = 1;
                 currentPath = currentPath + 1;
@@ -17,10 +19,11 @@ function robotStep(obj, event)
             if currentStep <= size(Paths{currentPath}, 1)
                 patties.pattyModel{1}.base = UR3Bot.model.fkine(UR3Bot.model.getpos());
                 patties.pattyModel{1}.animate(0);
-                UR3Bot.model.animate(Paths{currentPath}(currentStep, :));               
+                UR3Bot.model.animate(Paths{currentPath}(currentStep, :));
                 drawnow();
                 currentStep = currentStep + 1;
             else
+
                 % Reset step and move to next path
                 currentStep = 1;
                 currentPath = currentPath + 1;
