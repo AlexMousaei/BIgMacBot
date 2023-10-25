@@ -61,6 +61,9 @@ classdef Workspace < handle
         end
         
         function DisplayEnvironment(self)
+            global robotFigure; % Use the global variable to get the handle
+
+            figure(robotFigure); % Set the 'robotFigure' as the current figure
             % Display the floor
             self.floorHandle = surf([-4,-4;4,4], ...
                                     [-4,4;-4,4], ...

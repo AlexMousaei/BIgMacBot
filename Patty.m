@@ -18,7 +18,7 @@ classdef Patty < handle
 
         pattyFinalPositions = [ % final positions where the patty should be placed.
 
-        -1.1, 1.4-0.2, 0.93;                  %Bot mid
+        -1.1, 1.4, 0.93;                  %Bot mid
         0.4, 0.13343, 0;            %Bot left
         0.4, 0,  0.03336;           %mid mid
         0.4, 0.13343,  0.03336;     %mid left
