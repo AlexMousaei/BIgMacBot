@@ -67,64 +67,66 @@ classdef Workspace < handle
             hold on;
             
             % Display the table
-            tablePosition = [-0.45, -0.25, 0]; 
+            tablePosition = [-0.45, 0.75, 0]; 
             self.tableHandle = PlaceObject(self.tableFile, tablePosition);
         
-            personPosition = [1.25, 1.45, 0];
+            personPosition = [1.25, 2.45, 0];
             self.personHandle = PlaceObject(self.personFile, personPosition);
             T2 = trotz(pi/2);
             RotateObject(self.personHandle, T2);
 
-            % Display the Safety features in environment
-            fencePosition = [0, 1, -1];
-            self.fenceHandle = PlaceObject(self.fenceFile, fencePosition);
-            %Scale down object
-            vertices1 = get(self.fenceHandle, 'vertices');
-            scalingFactor = 0.65;
-            scaledVertexData1 = vertices1 * scalingFactor;
-            set(self.fenceHandle, 'Vertices', scaledVertexData1);
+            % % Display the Safety features in environment
+            % fencePosition = [0, 2.25, -1];
+            % self.fenceHandle = PlaceObject(self.fenceFile, fencePosition);
+            % %Scale down object
+            % vertices1 = get(self.fenceHandle, 'vertices');
+            % scalingFactor = 0.65;
+            % scaledVertexData1 = vertices1 * scalingFactor;
+            % set(self.fenceHandle, 'Vertices', scaledVertexData1);
 
-            fireHydrPosition = [-2.8, -0.422, 0.5];
+            fireHydrPosition = [2.25, -2, 0.5];
             self.fireHydrantHandle = PlaceObject(self.fireHydrantFile, fireHydrPosition);
-            T3 = trotz(pi/2);
+            T3 = trotz(pi);
             RotateObject(self.fireHydrantHandle, T3);
 
-            eStopPosition = [-2.0, -1.12, 0.65];
+            eStopPosition = [1.0, -2, 1.05];
             self.eStopHandle = PlaceObject(self.eStopFile, eStopPosition);
-            T4 = trotz(pi);
+            % T4 = trotz(pi);
+            T4 = trotx(pi/2);
             RotateObject(self.eStopHandle, T4);
             
-            kitchenPosition = [0, 0.75, 0];
+            kitchenPosition = [0, 0.75+1, 0];
             self.kitchenBenchtopHandle = PlaceObject(self.kitchenBenchtopFile,kitchenPosition);
             
-            panPosition = [-0.22, 0.72, 1.045];
+            panPosition = [-0.22, 0.72+1, 1.045];
             self.panHandle = PlaceObject(self.panFile,panPosition);
             
-            tray1Position = [-1.1, 0.4, 0.93];
+            tray1Position = [-1.1, 0.4+1, 0.93];
             self.tray1Handle = PlaceObject(self.tray1File,tray1Position);
 
-            tray2Position = [0.2, 0.55, 1];
+            tray2Position = [0.2, 0.55+1, 1];
             self.tray2Handle = PlaceObject(self.tray2File,tray2Position);
             RotateObject(self.tray2Handle, T3);
 
             % Display the table
-            benchPosition = [-1.75, 1.1, 0]; 
+            benchPosition = [-1.75, 1.1+1, 0]; 
             self.benchHandle = PlaceObject(self.benchFile, benchPosition);
             T5 = trotz(pi/2);
             RotateObject(self.benchHandle, T5);
             
-            burgerPosition = [-1, 0.95, 0.75];
+            burgerPosition = [-1, 0.95+1, 0.75];
             self.burgerHandle = PlaceObject(self.burgerFile,burgerPosition);
             
-            sauce1Position = [-0.7, 0.4, -1.1];
+            sauce1Position = [-0.7, 0.4+1, -1.1];
             self.sauce1Handle = PlaceObject(self.sauce1File,sauce1Position);
 
-            sauce2Position = [-1.25, 0.63, -1.1];
+            sauce2Position = [-1.25, 0.63+1, -1.1];
             self.sauce2Handle = PlaceObject(self.sauce2File,sauce2Position);
 
-            counterPosition = [0.5,-2.9,0.03];
+            counterPosition = [0.5,-2.9,0.01];
             self.counterHandle = PlaceObject(self.counterFile,counterPosition);
-            RotateObject(self.benchHandle,-trotz(pi/2));
+            Tcounter = trotz(-pi/2);
+            RotateObject(self.counterHandle,Tcounter);
         end
 
         function DeleteEnvironment(self)

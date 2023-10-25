@@ -14,9 +14,9 @@ end
 global UR3Bot scaraBot qPath1 qPath2 Paths currentPath t currentStep;
 
 %Initialise the Robots
-initUR3Pos = transl(0, -0.1, 0.85);
+initUR3Pos = transl(0, -0.1+1, 0.85);
 UR3Bot = LinearUR3(initUR3Pos);
-initScaraPos = transl(-1.75, 0.9, 0.85);
+initScaraPos = transl(-1.75, 0.9+1, 0.85);
 scaraBot = IRB_910sc(initScaraPos);
 
 % Setup the Timer
