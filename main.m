@@ -16,7 +16,7 @@ global UR3Bot scaraBot qPath1 qPath2 Paths currentPath t currentStep patties;
 %Initialise the Robots
 initUR3Pos = transl(0, -0.1+1, 0.85);
 UR3Bot = LinearUR3(initUR3Pos);
-initScaraPos = transl(-1.75, 0.9+1, 0.85);
+initScaraPos = transl(-1.55, 1.6, 0.85);
 scaraBot = IRB_910sc(initScaraPos);
 
 % Setup the Timer
@@ -29,7 +29,7 @@ wSpace = Workspace();
 wSpace.DisplayEnvironment;
 
 % Add in the burger patties
-patties = Patty();
+patties = Patty(1);
 
 % Create the E-stopGui
 eStopGUI();
@@ -38,8 +38,11 @@ eStopGUI();
 % s = serialSetup('COM7');
 
 % Set Target Positions
-targetPos1 = transl(0.15, 0.4, 1);
-targetPos2 = transl(-1.1, 0.4, 0.93);
+
+
+offset = SE3(transl(0,0,0.1)*trotx(pi));
+targetPos1 = patties.pattyInitialSE3Transform{1}*offset;
+targetPos2 = patties.pattyFinalSE3Transform{1}*offset;
 
 % Setup Waypoints
 qStart = UR3Bot.model.getpos();

@@ -1,9 +1,10 @@
 function robotStep(obj, event)
     global UR3Bot Paths currentPath currentStep patties;
  
-    if currentStep <= size(Paths{currentPath}, 1)
+    if currentStep <= size(Paths{currentPath}, 1) && currentPath == 1
         % Animate the robot for the current trajectory step
         UR3Bot.model.animate(Paths{currentPath}(currentStep, :));
+        disp("here");
         drawnow();
         currentStep = currentStep + 1;
 
@@ -16,6 +17,7 @@ function robotStep(obj, event)
             UR3Bot.model.animate(Paths{currentPath}(currentStep, :));
             patties.pattyModel{1}.base = UR3Bot.model.fkine(UR3Bot.model.getpos());
             patties.pattyModel{1}.animate(0);
+            disp(UR3Bot.model.getpos());
             drawnow();
             currentStep = currentStep + 1;
         else

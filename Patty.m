@@ -5,7 +5,7 @@ classdef Patty < handle
     properties (Constant)
         % Constants representing the initial and final positions of the patty in the workspace.
         pattyInitialPositions = [ % Initial positions of patty.
-            0.15, 1.45, 1;
+            0.15, 1.45-0.2, 1;
             0.2, 1.45, 1;
             0.2, 1.55, 1;
             0.15, 1.55, 1;
@@ -18,7 +18,7 @@ classdef Patty < handle
 
         pattyFinalPositions = [ % final positions where the patty should be placed.
 
-        0.4, 0, 0;                  %Bot mid
+        -1.1, 1.4-0.2, 0.93;                  %Bot mid
         0.4, 0.13343, 0;            %Bot left
         0.4, 0,  0.03336;           %mid mid
         0.4, 0.13343,  0.03336;     %mid left
