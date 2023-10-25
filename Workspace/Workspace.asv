@@ -16,6 +16,7 @@ classdef Workspace < handle
         burgerFile
         sauce1File
         sauce2File
+        counterFile
         % Setup Handles for the objects in the environment
         floorHandle
         tableHandle
@@ -31,6 +32,7 @@ classdef Workspace < handle
         burgerHandle
         sauce1Handle
         sauce2Handle
+        counterHandle
     end
     
     methods
@@ -51,6 +53,7 @@ classdef Workspace < handle
             self.burgerFile = 'burger.ply';
             self.sauce1File = 'ketchup.ply';
             self.sauce2File = 'ketchup.ply';
+            self.counterFile = 'counter.ply';
 
         end
         
@@ -94,13 +97,13 @@ classdef Workspace < handle
             kitchenPosition = [0, 0.75, 0];
             self.kitchenBenchtopHandle = PlaceObject(self.kitchenBenchtopFile,kitchenPosition);
             
-            panPosition = [-0.22, 0.72, 1.03];
+            panPosition = [-0.22, 0.72, 1.045];
             self.panHandle = PlaceObject(self.panFile,panPosition);
             
             tray1Position = [-1.1, 0.4, 0.93];
             self.tray1Handle = PlaceObject(self.tray1File,tray1Position);
 
-            tray2Position = [0.37, 0.4, 0.95];
+            tray2Position = [0.2, 0.55, 1];
             self.tray2Handle = PlaceObject(self.tray2File,tray2Position);
             RotateObject(self.tray2Handle, T3);
 
@@ -110,15 +113,18 @@ classdef Workspace < handle
             T5 = trotz(pi/2);
             RotateObject(self.benchHandle, T5);
             
-            burgerPosition = [-1, 0.2, 0.85];
+            burgerPosition = [-1, 0.95, 0.75];
             self.burgerHandle = PlaceObject(self.burgerFile,burgerPosition);
             
-            sauce1Position = [-0.7, 0.75, 0.85];
+            sauce1Position = [-0.7, 0.4, -1.1];
             self.sauce1Handle = PlaceObject(self.sauce1File,sauce1Position);
 
-            sauce2Position = [-0.7, 0.75, 0.85];
+            sauce2Position = [-1.25, 0.63, -1.1];
             self.sauce2Handle = PlaceObject(self.sauce2File,sauce2Position);
 
+            counterPosition = [-1.25, 0.63, -1.1];
+            self.counterHandle = PlaceObject(self.counterFile,counterPosition);
+            RotateObject(self.personHandle, T2);
 
         end
 

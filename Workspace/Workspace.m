@@ -16,6 +16,7 @@ classdef Workspace < handle
         burgerFile
         sauce1File
         sauce2File
+        counterFile
         % Setup Handles for the objects in the environment
         floorHandle
         tableHandle
@@ -31,6 +32,7 @@ classdef Workspace < handle
         burgerHandle
         sauce1Handle
         sauce2Handle
+        counterHandle
     end
     
     methods
@@ -51,13 +53,14 @@ classdef Workspace < handle
             self.burgerFile = 'burger.ply';
             self.sauce1File = 'ketchup.ply';
             self.sauce2File = 'ketchup.ply';
+            self.counterFile = 'counter.ply';
 
         end
         
         function DisplayEnvironment(self)
             % Display the floor
-            self.floorHandle = surf([-3,-3;3,3], ...
-                                    [-3,3;-3,3], ...
+            self.floorHandle = surf([-4,-4;4,4], ...
+                                    [-4,4;-4,4], ...
                                     [0.01,0.01;0.01,0.01], ...
                                     'CData', imread(self.floorTexture), ...
                                     'FaceColor', 'texturemap');
@@ -119,7 +122,9 @@ classdef Workspace < handle
             sauce2Position = [-1.25, 0.63, -1.1];
             self.sauce2Handle = PlaceObject(self.sauce2File,sauce2Position);
 
-
+            counterPosition = [0.5,-2.9,0.03];
+            self.counterHandle = PlaceObject(self.counterFile,counterPosition);
+            RotateObject(self.benchHandle,-trotz(pi/2));
         end
 
         function DeleteEnvironment(self)

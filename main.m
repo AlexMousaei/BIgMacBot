@@ -4,6 +4,12 @@ clear all;
 close all;
 clc
 
+% Close Open COM port Connections for arduino estop
+if ~isempty(instrfind)
+    fclose(instrfind);
+    delete(instrfind);
+end
+
 % Declare Global Variables
 global UR3Bot scaraBot qPath1 qPath2 Paths currentPath t currentStep;
 
@@ -24,6 +30,9 @@ wSpace.DisplayEnvironment;
 
 % Create the E-stopGui
 eStopGUI();
+
+% Initialise the serial communication and pass the state manager
+s = serialSetup('COM7');
 
 % Set Target Positions
 targetPos1 = transl(-0.22, 0.72, 1.045);
