@@ -11,7 +11,11 @@ clc
 % end
 
 % Declare Global Variables
+
 global UR3Bot scaraBot qPath1 qPath2 qPath3 qPath4 Paths currentPath t currentStep patties;
+
+global robotFigure;
+robotFigure = figure; % Create the robot figure
 
 %Initialise the Robots
 initUR3Pos = transl(0, -0.1+1, 0.85);
@@ -33,13 +37,15 @@ patties = Patty(3);
 
 % Create the E-stopGui
 eStopGUI();
-
+personGUI();
 % % Initialise the serial communication and pass the state manager
 % s = serialSetup('COM7');
 
 % Set Target Positions
 
 offset = SE3(transl(0,0,0)*trotx(pi));
+
+
 targetPos1 = patties.pattyInitialSE3Transform{1}*offset;
 targetPos2 = patties.pattyInitialSE3Transform{2}*offset;
 targetPos3 = patties.pattyFinalSE3Transform{2}*offset;
@@ -64,9 +70,10 @@ qPath4 = jtraj(qPlace2, qPlace3, 150);
 Paths = {qPath1, qPath2, qPath3, qPath4};
 currentPath = 1;
 
+
+
 input("Press enter to continue: ", 's');
 start(t);
-
 
 
 
