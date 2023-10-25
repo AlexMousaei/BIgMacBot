@@ -13,6 +13,7 @@ classdef Workspace < handle
         benchFile
         tray1File
         tray2File
+        tray3File
         burgerFile
         sauce1File
         sauce2File
@@ -29,6 +30,7 @@ classdef Workspace < handle
         benchHandle
         tray1Handle
         tray2Handle
+        tray3Handle
         burgerHandle
         sauce1Handle
         sauce2Handle
@@ -50,6 +52,7 @@ classdef Workspace < handle
             self.benchFile = 'workBench2.ply';
             self.tray1File = 'tray.ply';
             self.tray2File = 'tray.ply';
+            self.tray3File = 'tray.ply';
             self.burgerFile = 'burger.ply';
             self.sauce1File = 'ketchup.ply';
             self.sauce2File = 'ketchup.ply';
@@ -101,10 +104,16 @@ classdef Workspace < handle
             panPosition = [-0.22, 0.72+1, 1.045];
             self.panHandle = PlaceObject(self.panFile,panPosition);
             
+            %final patty
             tray1Position = [-1.1, 0.4+1, 0.93];
             self.tray1Handle = PlaceObject(self.tray1File,tray1Position);
-
-            tray2Position = [0.2, 0.55+1, 1];
+            
+            %burger? tray
+            tray3Position = [-1.1, 0.4+1+0.4, 0.93];
+            self.tray3Handle = PlaceObject(self.tray3File,tray3Position);
+            
+            %initial patty
+            tray2Position = [0.2, 0.55+1-0.2, 1];
             self.tray2Handle = PlaceObject(self.tray2File,tray2Position);
             RotateObject(self.tray2Handle, T3);
 
@@ -114,14 +123,14 @@ classdef Workspace < handle
             T5 = trotz(pi/2);
             RotateObject(self.benchHandle, T5);
             
-            burgerPosition = [-1, 0.95+1, 0.75];
-            self.burgerHandle = PlaceObject(self.burgerFile,burgerPosition);
-            
-            sauce1Position = [-0.7, 0.4+1, -1.1];
-            self.sauce1Handle = PlaceObject(self.sauce1File,sauce1Position);
-
-            sauce2Position = [-1.25, 0.63+1, -1.1];
-            self.sauce2Handle = PlaceObject(self.sauce2File,sauce2Position);
+            % burgerPosition = [-1, 0.95+1, 0.75];
+            % self.burgerHandle = PlaceObject(self.burgerFile,burgerPosition);
+            % 
+            % sauce1Position = [-0.7, 0.4+1, -1.1];
+            % self.sauce1Handle = PlaceObject(self.sauce1File,sauce1Position);
+            % 
+            % sauce2Position = [-1.25, 0.63+1, -1.1];
+            % self.sauce2Handle = PlaceObject(self.sauce2File,sauce2Position);
 
             counterPosition = [0.5,-2.9,0.01];
             self.counterHandle = PlaceObject(self.counterFile,counterPosition);
