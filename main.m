@@ -41,36 +41,8 @@ currentPath = 1;
 input("Press enter to continue: ", 's');
 start(t);
 
-% % Close Open COM port Connections for arduino estop
-% if ~isempty(instrfind)
-%     fclose(instrfind);
-%     delete(instrfind);
-% end
-% 
-% % start logging
-% diary('outputLog.txt');
-% diary on;
-% logMessage('STARTING');
-% hold on;
-% 
-% 
-% % Initialize the state manager
-% stateMgr = StateManager();
-% 
-% % Initialise the serial communication and pass the state manager
-% s = serialSetup('COM7', stateMgr);
-% 
-% % Log that the main control loop has started
-% logMessage('Main robot control loop started.');
-% 
-% 
-% 
-% 
-% % Cleanup the serial connection
-% fclose(s);
-% delete(s);
-% clear s;
-% 
-% % Log that the main control script has ended
-% logMessage('Main script ended.');
+
+
+
+
 
