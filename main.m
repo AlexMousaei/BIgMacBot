@@ -43,19 +43,20 @@ personGUI();
 
 % Set Target Positions
 
-offset = SE3(transl(0,0,0)*trotx(pi));
+offset = SE3(transl(0,0,0)*trotx(-pi));
 
 
 targetPos1 = patties.pattyInitialSE3Transform{1}*offset;
 targetPos2 = patties.pattyInitialSE3Transform{2}*offset;
+waypoint1 = SE3(transl(0.15, 1.3, 1.3))*offset;
 targetPos3 = patties.pattyFinalSE3Transform{2}*offset;
 targetPos4 = patties.pattyInitialSE3Transform{3}*offset;
 
 
 % Setup Waypoints for UR3
-qGuess1 = deg2rad([-0.01 -180 -30 -15 0 90 0]); % Tray 1 q config
-qGuess2 = deg2rad([-0.32 -180 -30 -15 0 90 0]); % Pan q config
-qGuess3 = deg2rad([-0.69 -135 -30 -15 0 90 0]); % Tray 2 q config
+qGuess1 = deg2rad([-0.01 -180 -70 -15 0 90 0]); % Tray 1 q config
+qGuess2 = deg2rad([-0.25 -175 -74 -10 0 90 0]); % Pan q config
+qGuess3 = deg2rad([-0.8 -145 -82 -10 5 90 0]); % Tray 2 q config
 
 qStart = UR3Bot.model.getpos(); 
 qPick1 = UR3Bot.model.ikcon(targetPos1, qGuess1);
@@ -63,10 +64,10 @@ qPlace1 = UR3Bot.model.ikcon(targetPos2, qGuess2);
 qPlace2 = UR3Bot.model.ikcon(targetPos3, qGuess3);
 qPlace3 = UR3Bot.model.ikcon(targetPos4, qGuess1);
 
-qPath1 = jtraj(qStart, qPick1, 150);
-qPath2 = jtraj(qPick1, qPlace1, 150);
-qPath3 = jtraj(qPlace1, qPlace2, 150);
-qPath4 = jtraj(qPlace2, qPlace3, 150);
+qPath1 = jtraj(qStart, qPick1, 100);
+qPath2 = jtraj(qPick1, qPlace1, 100);
+qPath3 = jtraj(qPlace1, qPlace2, 100);
+qPath4 = jtraj(qPlace2, qPlace3, 100);
 Paths = {qPath1, qPath2, qPath3, qPath4};
 currentPath = 1;
 
