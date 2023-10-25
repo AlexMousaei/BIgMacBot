@@ -61,9 +61,9 @@ classdef Workspace < handle
         end
         
         function DisplayEnvironment(self)
-            global robotFigure; % Use the global variable to get the handle
+            global robotFigure;
+            figure(robotFigure);
 
-            figure(robotFigure); % Set the 'robotFigure' as the current figure
             % Display the floor
             self.floorHandle = surf([-4,-4;4,4], ...
                                     [-4,4;-4,4], ...
@@ -71,6 +71,12 @@ classdef Workspace < handle
                                     'CData', imread(self.floorTexture), ...
                                     'FaceColor', 'texturemap');
             hold on;
+
+            % Set up light curtain
+            lightCurtainStart = [3, 0, 1];
+            lightCurtainEnd = [-3, 0, 1];
+            plot3([lightCurtainStart(1), lightCurtainEnd(1)], [lightCurtainStart(2), lightCurtainEnd(2)], [lightCurtainStart(3), lightCurtainEnd(3)], 'r--', 'LineWidth', 2);
+
             
             % Display the table
             tablePosition = [-0.45, 0.75, 0]; 

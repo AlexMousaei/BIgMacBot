@@ -12,16 +12,19 @@ clc
 
 % Declare Global Variables
 
-global UR3Bot scaraBot qPath1 qPath2 qPath3 qPath4 Paths currentPath t currentStep patties;
+global UR3Bot scaraBot qPath1 qPath2 qPath3 qPath4 Paths currentPath t currentStep patties ;
 
-global robotFigure;
-robotFigure = figure; % Create the robot figure
-
+global robotFigure personmove personHandle personPosition T2;
+robotFigure = figure;
+personmove = false;
+personPosition = [0, -1.5, 0];
+T2 = trotz(-pi/2);
 %Initialise the Robots
 initUR3Pos = transl(0, -0.1+1, 0.85);
 UR3Bot = LinearUR3(initUR3Pos);
 initScaraPos = transl(-1.55, 1.6, 0.85);
 scaraBot = IRB_910sc(initScaraPos);
+
 
 % Setup the Timer
 % Create a timer to animate the robot
@@ -58,7 +61,7 @@ qGuess1 = deg2rad([-0.01 -180 -70 -15 0 90 0]); % Tray 1 q config
 qGuess2 = deg2rad([-0.25 -175 -74 -10 0 90 0]); % Pan q config
 qGuess3 = deg2rad([-0.8 -145 -82 -10 5 90 0]); % Tray 2 q config
 
-qStart = UR3Bot.model.getpos(); 
+qStart = UR3Bot.model.getpos();
 qPick1 = UR3Bot.model.ikcon(targetPos1, qGuess1);
 qPlace1 = UR3Bot.model.ikcon(targetPos2, qGuess2);
 qPlace2 = UR3Bot.model.ikcon(targetPos3, qGuess3);
@@ -70,6 +73,7 @@ qPath3 = jtraj(qPlace1, qPlace2, 100);
 qPath4 = jtraj(qPlace2, qPlace3, 100);
 Paths = {qPath1, qPath2, qPath3, qPath4};
 currentPath = 1;
+
 
 
 
