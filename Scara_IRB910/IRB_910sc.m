@@ -20,7 +20,7 @@ classdef IRB_910sc < RobotBaseClass
             self.CreateModel();
             self.model.base = baseTr;
             self.PlotAndColourRobot();
-            axis([-4 4 -4 4 0 4]);
+            axis([-3.5 3.5 -3.5 3.5 0 3.5]);
             drawnow();
         end
         function CreateModel(self)
@@ -30,7 +30,7 @@ classdef IRB_910sc < RobotBaseClass
             L(2) = Link('d',0.2577-0.1916,    'a',0.25,       'alpha',0,  'qlim',deg2rad([-150 150]), 'offset',0);
             L(3) = Link([0     0       0       0    1]);
 
-            L(1).qlim = [-90 90]*pi/180;
+            L(1).qlim = [-360 360]*pi/180;
             L(2).qlim = [-90 90]*pi/180;
             L(3).qlim = [-0.180 0];
 

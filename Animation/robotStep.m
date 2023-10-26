@@ -1,6 +1,6 @@
 function robotStep(obj, event)
 
-    global UR3Bot Paths currentPath currentStep patties;
+    global UR3Bot scaraBot Paths currentPath currentStep patties;
 
     global robotFigure personmove personHandle personPosition T2;
 
@@ -73,6 +73,7 @@ function robotStep(obj, event)
                 patties.pattyModel{2}.base = UR3Bot.model.fkine(UR3Bot.model.getpos());
                 patties.pattyModel{2}.animate(0);
                 UR3Bot.model.animate(Paths{currentPath}(currentStep, :));
+                scaraBot.model.animate(Paths{5}(currentStep, :));
                 drawnow();
                 currentStep = currentStep + 1;
             else
@@ -88,9 +89,14 @@ function robotStep(obj, event)
         case 4
             if currentStep <= size(Paths{currentPath}, 1)
                 UR3Bot.model.animate(Paths{currentPath}(currentStep, :));
+                patties.pattyModel{2}.base = scaraBot.model.fkine(scaraBot.model.getpos());
+                patties.pattyModel{2}.animate(0);
+                scaraBot.model.animate(Paths{6}(currentStep, :));
                 drawnow();
                 currentStep = currentStep + 1;
             else
+                patties.pattyModel{2}.base = transl(-1.08, 1.90, 0.93);
+                 patties.pattyModel{2}.animate(0);
                 % Reset step and move to next path
                 currentStep = 1;
                 currentPath = currentPath + 1;
