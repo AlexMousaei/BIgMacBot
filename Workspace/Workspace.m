@@ -18,6 +18,7 @@ classdef Workspace < handle
         sauce1File
         sauce2File
         counterFile
+        warningsignFile
         % Setup Handles for the objects in the environment
         floorHandle
         tableHandle
@@ -25,6 +26,7 @@ classdef Workspace < handle
         fenceHandle
         fireHydrantHandle
         eStopHandle
+        eStopHandle1
         kitchenBenchtopHandle
         panHandle
         benchHandle
@@ -35,8 +37,11 @@ classdef Workspace < handle
         sauce1Handle
         sauce2Handle
         counterHandle
+        warningsignHandle1
+        warningsignHandle2
+
     end
-    
+
     methods
         % Constructor to build object
         function self = Workspace()
@@ -57,19 +62,20 @@ classdef Workspace < handle
             self.sauce1File = 'ketchup.ply';
             self.sauce2File = 'ketchup.ply';
             self.counterFile = 'counter.ply';
+            self.warningsignFile = 'warningsign.ply';
 
         end
-        
+
         function DisplayEnvironment(self)
             global robotFigure;
             figure(robotFigure);
 
             % Display the floor
             self.floorHandle = surf([-4,-4;4,4], ...
-                                    [-4,4;-4,4], ...
-                                    [0.01,0.01;0.01,0.01], ...
-                                    'CData', imread(self.floorTexture), ...
-                                    'FaceColor', 'texturemap');
+                [-4,4;-4,4], ...
+                [0.01,0.01;0.01,0.01], ...
+                'CData', imread(self.floorTexture), ...
+                'FaceColor', 'texturemap');
             hold on;
 
             % Set up light curtain
@@ -77,12 +83,12 @@ classdef Workspace < handle
             lightCurtainEnd = [-3, 0, 1];
             plot3([lightCurtainStart(1), lightCurtainEnd(1)], [lightCurtainStart(2), lightCurtainEnd(2)], [lightCurtainStart(3), lightCurtainEnd(3)], 'r--', 'LineWidth', 2);
 
-            
+
             % Display the table
-            tablePosition = [-0.45, 0.75, 0]; 
+            tablePosition = [-0.45, 0.75, 0];
             self.tableHandle = PlaceObject(self.tableFile, tablePosition);
-        
-            personPosition = [1.25, 2.45, 0];
+
+            personPosition = [-2, -1.5, 0];
             self.personHandle = PlaceObject(self.personFile, personPosition);
             T2 = trotz(pi/2);
             RotateObject(self.personHandle, T2);
@@ -104,40 +110,46 @@ classdef Workspace < handle
             eStopPosition = [1.0, -2, 1.05];
             self.eStopHandle = PlaceObject(self.eStopFile, eStopPosition);
             % T4 = trotz(pi);
-            T4 = trotx(pi/2);
+            T4 = trotx(-pi/2);
             RotateObject(self.eStopHandle, T4);
-            
+
+            eStopPosition1 = [-2.2, -0.91, 1];
+            self.eStopHandle1 = PlaceObject(self.eStopFile, eStopPosition1);
+            % T4 = trotz(pi);
+            T6 = trotz(-pi/2);
+            RotateObject(self.eStopHandle1, T6);
+
             kitchenPosition = [0, 0.75+1, 0];
             self.kitchenBenchtopHandle = PlaceObject(self.kitchenBenchtopFile,kitchenPosition);
-            
+
             panPosition = [-0.22, 0.72+1, 1.045];
             self.panHandle = PlaceObject(self.panFile,panPosition);
-            
+
             %final patty
             tray1Position = [-1.1, 0.4+1, 0.93];
             self.tray1Handle = PlaceObject(self.tray1File,tray1Position);
-            
+
             %burger? tray
             tray3Position = [-1.1, 0.4+1+0.4, 0.93];
             self.tray3Handle = PlaceObject(self.tray3File,tray3Position);
-            
+
             %initial patty
             tray2Position = [0.2, 0.55+1-0.2, 1];
             self.tray2Handle = PlaceObject(self.tray2File,tray2Position);
             RotateObject(self.tray2Handle, T3);
 
             % Display the table
-            benchPosition = [-1.75, 1.1+1, 0]; 
+            benchPosition = [-1.75, 1.1+1, 0];
             self.benchHandle = PlaceObject(self.benchFile, benchPosition);
             T5 = trotz(pi/2);
             RotateObject(self.benchHandle, T5);
-            
+
             burgerPosition = [-1.08, 1.90, 0.93];
             self.burgerHandle = PlaceObject(self.burgerFile,burgerPosition);
-            % 
+            %
             % sauce1Position = [-0.7, 0.4+1, -1.1];
             % self.sauce1Handle = PlaceObject(self.sauce1File,sauce1Position);
-            % 
+            %
             % sauce2Position = [-1.25, 0.63+1, -1.1];
             % self.sauce2Handle = PlaceObject(self.sauce2File,sauce2Position);
 
@@ -145,6 +157,11 @@ classdef Workspace < handle
             self.counterHandle = PlaceObject(self.counterFile,counterPosition);
             Tcounter = trotz(-pi/2);
             RotateObject(self.counterHandle,Tcounter);
+
+            warningsignPosition1 = [-2,0.5,0];
+            self.warningsignHandle1 = PlaceObject(self.warningsignFile, warningsignPosition1);
+            warningsignPosition2 = [1,0.5,0];
+            self.warningsignHandle2 = PlaceObject(self.warningsignFile, warningsignPosition2);
         end
 
         function DeleteEnvironment(self)
@@ -152,12 +169,12 @@ classdef Workspace < handle
             if isvalid(self.floorHandle)
                 delete(self.floorHandle);
             end
-            
+
             % Delete the table
             if isvalid(self.tableHandle)
                 delete(self.tableHandle);
             end
-            
+
             % Delete the person
             if isvalid(self.personHandle)
                 delete(self.personHandle);
