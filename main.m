@@ -40,7 +40,7 @@ patties = Patty(3);
 
 % Create the E-stopGui
 eStopGUI();
-personGUI();
+% personGUI();
 % % Initialise the serial communication and pass the state manager
 % s = serialSetup('COM7');
 
