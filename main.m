@@ -59,9 +59,9 @@ targetPos5 = transl(-1.08, 1.90, 0.93); % tray 3 patty pos
 
 
 % Setup Waypoints for UR3
-qUR3Guess1 = deg2rad([-0.01 -180 -70 -15 0 90 0]); % Tray 1 q config UR3
-qUR3Guess2 = deg2rad([-0.25 -175 -74 -10 0 90 0]); % Pan q config UR3
-qUR3Guess3 = deg2rad([-0.8 -131 -90 0 9 90 0]); % Tray 2 q config UR3
+qUR3Guess1 = deg2rad([-0.01 -180 -70 -15 0 90 0 0]); % Tray 1 q config UR3
+qUR3Guess2 = deg2rad([-0.25 -175 -74 -10 0 90 0 0]); % Pan q config UR3
+qUR3Guess3 = deg2rad([-0.8 -131 -90 0 9 90 0 0]); % Tray 2 q config UR3
 qScaraGuess1 = deg2rad([157, 0, -0.18]); % Tray q config Scara
 qScaraGuess2 = deg2rad([215, 0, -0.15]);
 % Setup the Robot Paths

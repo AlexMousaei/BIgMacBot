@@ -34,7 +34,7 @@ classdef LinearUR3 < RobotBaseClass
             link(5) = Link('d',0.11235,'a',0,'alpha',pi/2,'qlim',deg2rad([-360 360]),'offset', -pi/2);
             link(6) = Link('d',0.08535,'a',0,'alpha',-pi/2,'qlim',deg2rad([-360,360]), 'offset',0);
             link(7) = Link('d',0.0819,'a',0,'alpha',0,'qlim',deg2rad([-360,360]), 'offset', 0);
-            %link(8) = Link('d',0.1500,'a',0,   'alpha',0,   'offset',0,'qlim',deg2rad([-360,360]));
+            link(8) = Link('d',0.1500,'a',0,   'alpha',0,   'offset',0,'qlim',deg2rad([-360,360]));
 
             % Incorporate joint limits
             link(1).qlim = [-0.8 -0.01];
