@@ -121,8 +121,8 @@ classdef Workspace < handle
 
             kitchenPosition = [0, 0.75+1, 0];
             self.kitchenBenchtopHandle = PlaceObject(self.kitchenBenchtopFile,kitchenPosition);
-
-            panPosition = [-0.22, 0.72+1, 1.045];
+            
+            panPosition = [-0.22, 0.72+1, 1.015];
             self.panHandle = PlaceObject(self.panFile,panPosition);
 
             %final patty
@@ -139,12 +139,12 @@ classdef Workspace < handle
             RotateObject(self.tray2Handle, T3);
 
             % Display the table
-            benchPosition = [-1.75, 1.1+1, 0];
+            benchPosition = [-1.75, 1.3, 0]; 
             self.benchHandle = PlaceObject(self.benchFile, benchPosition);
             T5 = trotz(pi/2);
             RotateObject(self.benchHandle, T5);
-
-            burgerPosition = [-1.08, 1.90, 0.93];
+            
+            burgerPosition = [-1.85, 0.8, 0.85];
             self.burgerHandle = PlaceObject(self.burgerFile,burgerPosition);
             %
             % sauce1Position = [-0.7, 0.4+1, -1.1];
