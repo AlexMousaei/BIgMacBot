@@ -132,8 +132,8 @@ classdef Workspace < handle
             T5 = trotz(pi/2);
             RotateObject(self.benchHandle, T5);
             
-            % burgerPosition = [-1, 0.95+1, 0.75];
-            % self.burgerHandle = PlaceObject(self.burgerFile,burgerPosition);
+            burgerPosition = [-1.08, 1.90, 0.93];
+            self.burgerHandle = PlaceObject(self.burgerFile,burgerPosition);
             % 
             % sauce1Position = [-0.7, 0.4+1, -1.1];
             % self.sauce1Handle = PlaceObject(self.sauce1File,sauce1Position);
