@@ -1,4 +1,3 @@
-
 % Clear MATLAB
 clear all;
 close all;
