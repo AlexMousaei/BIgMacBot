@@ -113,7 +113,7 @@ classdef Workspace < handle
             T4 = trotx(-pi/2);
             RotateObject(self.eStopHandle, T4);
 
-            eStopPosition1 = [-2.2, -0.91, 1];
+            eStopPosition1 = [-2.2, -1.45, 1];
             self.eStopHandle1 = PlaceObject(self.eStopFile, eStopPosition1);
             % T4 = trotz(pi);
             T6 = trotz(-pi/2);
@@ -158,9 +158,9 @@ classdef Workspace < handle
             Tcounter = trotz(-pi/2);
             RotateObject(self.counterHandle,Tcounter);
 
-            warningsignPosition1 = [-2,0.5,0];
+            warningsignPosition1 = [-2,0,0];
             self.warningsignHandle1 = PlaceObject(self.warningsignFile, warningsignPosition1);
-            warningsignPosition2 = [1,0.5,0];
+            warningsignPosition2 = [1,0,0];
             self.warningsignHandle2 = PlaceObject(self.warningsignFile, warningsignPosition2);
         end
 
