@@ -1,8 +1,6 @@
 function robotStep(obj, event)
 
-    global UR3Bot scaraBot Paths currentPath currentStep patties;
-
-    global robotFigure personmove personHandle personPosition T2;
+    global UR3Bot scaraBot Paths currentPath currentStep patties robotFigure personmove personHandle personPosition T2;
 
     figure(robotFigure)
 
