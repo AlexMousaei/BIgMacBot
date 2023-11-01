@@ -24,7 +24,7 @@ T2 = trotz(-pi/2);
 %Initialise the Robots
 initUR3Pos = transl(0.25, -0.1+1, 0.85);
 UR3Bot = LinearUR3(initUR3Pos);
-initScaraPos = transl(-1, 0.8, 0.85)*trotz(pi/2);
+initScaraPos = transl(-1.27, 1, 0.85)*trotz(pi/2);
 scaraBot = IRB_910sc(initScaraPos);
 
 
