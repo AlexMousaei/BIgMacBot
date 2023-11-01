@@ -41,7 +41,7 @@ patties = Patty(3);
 eStopGUI();
 % personGUI();
 % % Initialise the serial communication and pass the state manager
-% s = serialSetup('COM7');
+%s = serialSetup('COM7');
 
 % Set Target Positions
 
