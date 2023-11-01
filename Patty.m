@@ -6,7 +6,7 @@ classdef Patty < handle
         % Constants representing the initial and final positions of the patty in the workspace.
         pattyInitialPositions = [ % Initial positions of patty.
             0.15, 1.3, 1;  
-            -0.24, 1.5, 1;
+            0.33, 1.3, 1;
             0.15, 1.45, 1;
             0.15, 1.55, 1;
             0.25, 1.55, 1;
