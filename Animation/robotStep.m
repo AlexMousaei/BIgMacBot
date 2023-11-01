@@ -58,28 +58,18 @@ function robotStep(obj, event)
                 drawnow();
                 currentStep = currentStep + 1;
             else
-
-                % Reset step and move to next path
-                patties.pattyModel{1}.base = patties.pattyFinalSE3Transform{1};
-                patties.pattyModel{1}.animate(0);
-                drawnow();
-
                 currentStep = 1;
                 currentPath = currentPath + 1;
             end
 
         case 3
             if currentStep <= size(Paths{currentPath}, 1)
-                patties.pattyModel{2}.base = UR3Bot.model.fkine(UR3Bot.model.getpos());
-                patties.pattyModel{2}.animate(0);
+                patties.pattyModel{1}.base = UR3Bot.model.fkine(UR3Bot.model.getpos());
+                patties.pattyModel{1}.animate(0);
                 UR3Bot.model.animate(Paths{currentPath}(currentStep, :));
-                scaraBot.model.animate(Paths{5}(currentStep, :));
                 drawnow();
                 currentStep = currentStep + 1;
             else
-                patties.pattyModel{2}.base = patties.pattyFinalSE3Transform{2};
-                patties.pattyModel{2}.animate(0);
-                drawnow();
                 % Reset step and move to next path
                 currentStep = 1;
                 currentPath = currentPath + 1;
@@ -88,15 +78,58 @@ function robotStep(obj, event)
 
         case 4
             if currentStep <= size(Paths{currentPath}, 1)
-                UR3Bot.model.animate(Paths{currentPath}(currentStep, :));
-                patties.pattyModel{2}.base = scaraBot.model.fkine(scaraBot.model.getpos());
-                patties.pattyModel{2}.animate(0);
-                scaraBot.model.animate(Paths{6}(currentStep, :));
+                UR3Bot.model.animate(Paths{currentPath}(currentStep, :))
                 drawnow();
                 currentStep = currentStep + 1;
             else
-                patties.pattyModel{2}.base = transl(-1.08, 1.90, 0.93);
-                 patties.pattyModel{2}.animate(0);
+                % Reset step and move to next path
+                currentStep = 1;
+                currentPath = currentPath + 1;
+                % Add more cases as needed for more paths
+            end
+        case 5 
+            if currentStep <= size(Paths{currentPath}, 1)
+                UR3Bot.model.animate(Paths{currentPath}(currentStep, :))
+                drawnow();
+                currentStep = currentStep + 1;
+            else
+                % Reset step and move to next path
+                currentStep = 1;
+                currentPath = currentPath + 1;
+                % Add more cases as needed for more paths
+            end
+        case 6
+            if currentStep <= size(Paths{currentPath}, 1)
+                patties.pattyModel{1}.base = UR3Bot.model.fkine(UR3Bot.model.getpos());
+                patties.pattyModel{1}.animate(0);
+                UR3Bot.model.animate(Paths{currentPath}(currentStep, :))
+                drawnow();
+                currentStep = currentStep + 1;
+            else
+                % Reset step and move to next path
+                currentStep = 1;
+                currentPath = currentPath + 1;
+                % Add more cases as needed for more paths
+            end
+        case 7
+            if currentStep <= size(Paths{currentPath}, 1)
+                patties.pattyModel{1}.base = UR3Bot.model.fkine(UR3Bot.model.getpos());
+                patties.pattyModel{1}.animate(0);
+                UR3Bot.model.animate(Paths{currentPath}(currentStep, :))
+                drawnow();
+                currentStep = currentStep + 1;
+            else
+                % Reset step and move to next path
+                currentStep = 1;
+                currentPath = currentPath + 1;
+                % Add more cases as needed for more paths
+            end
+        case 8
+            if currentStep <= size(Paths{currentPath}, 1)
+                UR3Bot.model.animate(Paths{currentPath}(currentStep, :))
+                drawnow();
+                currentStep = currentStep + 1;
+            else
                 % Reset step and move to next path
                 currentStep = 1;
                 currentPath = currentPath + 1;
