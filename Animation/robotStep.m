@@ -18,8 +18,10 @@ function robotStep(obj, event)
             personHandle = PlaceObject('personMaleCasual.ply', personPosition);
             RotateObject(personHandle, T2);
         end
-
-        % Check for intersections with the light curtain
+    end
+    % Check for intersections with the light curtain
+    % Only checking the personhandle
+    if isgraphics(personHandle)
         vertices = get(personHandle, 'Vertices');
         for v = 1:size(vertices, 1)
             vertex = vertices(v, :);
@@ -32,8 +34,6 @@ function robotStep(obj, event)
             end
         end
     end
-
-
 
     switch currentPath
         case 1
@@ -85,7 +85,7 @@ function robotStep(obj, event)
                 currentPath = currentPath + 1;
                 % Add more cases as needed for more paths
             end
-        case 5 
+        case 5
             if currentStep <= size(Paths{currentPath}, 1)
                 UR3Bot.model.animate(Paths{currentPath}(currentStep, :))
                 drawnow();
