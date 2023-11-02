@@ -1,29 +1,12 @@
 function toggleStop(src, event)
-    global t isEmergency personmove estopBtnHandle ResumebtnHandle;
-
+    global isEmergency
+    isEmergency = false;
     if isa(src, 'matlab.ui.control.UIControl')  % GUI source
-        switch src.Tag
-            case 'emergency'
-                if strcmp(t.Running, 'on')
-                    stop(t);
-                    eStopBtnHandle.BackgroundColour = [0.8 0.2 0.2];
-                    isEmergency = true;
-                else
-                    eStopBtnHandle.BackgroundColour = [0.2 0.6 0.2];
-                    isEmergency = false;
-                    
-                end
-            case 'resume'
-                if isEmergency == false;
-                        start(t); 
-                end
-            case 'person'
-                personmove = true;
-            otherwise
-                warning('Unknown UIControl callback source');
-        end
-    elseif isa(src, 'serial')  % Serial port source
-        handleSerialCallback();
+        handleUiControlCallback(src.Tag);
+    elseif strcmp(src, 'serialSTOP')   % Custom string source (serial source)
+        handleSerialStopCallback();
+    elseif strcmp(src, 'serialRUN')   % Custom string source (serial source)
+        handleSerialRunCallback();
     elseif strcmp(src, 'lightcurtaindetection')  % Custom string source
         handleLightCurtainDetection();
     else
@@ -31,35 +14,74 @@ function toggleStop(src, event)
     end
 end
 
-function handleSerialCallback()
-    global t;
-    global btnHandle;
-    logMessage('Serial Button Pressed');
-    toggleTimerAndButton();
+function handleUiControlCallback(tag)
+    global t isEmergency personmove estopBtnHandle ResumebtnHandle;
+    switch tag
+        case 'emergency'
+            if isEmergency == false
+                stop(t);
+                estopBtnHandle.BackgroundColor = [0.8 0.2 0.2];
+                isEmergency = true;
+                logMessage('Emergency stop activated');
+            else
+                estopBtnHandle.BackgroundColor = [1, 0.5, 0];
+                logMessage('Emergency stop turned off');
+                isEmergency = false;
+
+            end
+        case 'resume'
+            if isEmergency == false;
+                logMessage('Resume activated');
+                start(t);
+            else
+               logMessage('Turn off emergency stop before continuing');
+            end
+        case 'person'
+            personmove = true;
+        otherwise
+            warning('Unknown UIControl callback source');
+    end
+
+end
+
+function handleSerialStopCallback()
+    global t isEmergency personmove estopBtnHandle ResumebtnHandle;
+
+    if isEmergency == true
+        isEmergency = false;
+        logMessage('Emergency stop turned off');
+        estopBtnHandle.BackgroundColor = [1, 0.5, 0];
+    else
+        isEmergency = true;
+        logMessage('Emergency stop activated');
+        toggleTimerAndButton();
+        estopBtnHandle.BackgroundColor = [0.8 0.2 0.2]; %red
+    end
+end
+
+function handleSerialRunCallback()
+    global t isEmergency personmove estopBtnHandle ResumebtnHandle;
+
+    if isEmergency == true
+        logMessage('Turn off emergency stop before continuing');
+    elseif isEmergency == false
+        logMessage('Run activated');
+        start(t);
+        
+    end
 end
 
 function handleLightCurtainDetection()
-    global t;
-    global btnHandle;
-    logMessage('lightcurtaindetection');
+    logMessage('Sensor Detection: Laser photoelectric beam has been broken!');
     toggleTimerAndButton();
 end
 
 function toggleTimerAndButton()
-    global t;
-    global btnHandle;
+    global t isEmergency personmove estopBtnHandle ResumebtnHandle;
+
     if strcmp(t.Running, 'on')
         stop(t);
-        btnHandle.String = 'Resume';  % Update the GUI button string
-        logMessage('GUI string changed to resume');
-    else
-        start(t);
-        btnHandle.String = 'E-Stop';  % Update the GUI button string
-        logMessage('GUI string changed to estop');
+        estopBtnHandle.BackgroundColor = [0.8 0.2 0.2]; %red
+        isEmergency = true;
     end
 end
-
-function logMessage(msg)
-    disp(msg);
-end
-
