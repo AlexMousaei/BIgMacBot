@@ -40,7 +40,7 @@ function handleUiControlCallback(tag)
         case 'person'
             personmove = true;
         case 'deletePerson'
-            if exist('personHandle', 'var')
+            if isgraphics(personHandle)
                 delete(personHandle);
                 personHandle = [];
                 personPosition = [0, -1.5, 0];
@@ -51,7 +51,7 @@ function handleUiControlCallback(tag)
         case 'forcedcollision'
             objectForceCollision = true;
         case 'deleteObject'
-            if exist('objectHandle', 'var')
+            if isgraphics(objectHandle)
                 delete(objectHandle);
                 objectHandle = [];
                 logMessage('object model deleted');
