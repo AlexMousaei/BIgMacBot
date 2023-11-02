@@ -7,13 +7,16 @@ function toggleStop(src, event)
         handleSerialRunCallback();
     elseif strcmp(src, 'lightcurtaindetection')  % Custom string source
         handleLightCurtainDetection();
+    elseif strcmp(src, 'collisiondetection')  % Custom string source
+        handleForcedCollisionDetection();
     else
         warning('Unknown callback source');
     end
 end
 
 function handleUiControlCallback(tag)
-    global t isEmergency personmove estopBtnHandle personHandle personPosition;
+    global t isEmergency personmove estopBtnHandle personHandle personPosition...
+        objectPosition objectHandle objectForceCollision;
     switch tag
         case 'emergency'
             if isEmergency == false
@@ -37,11 +40,21 @@ function handleUiControlCallback(tag)
         case 'person'
             personmove = true;
         case 'deletePerson'
-            if exist('personHandle', 'var')
-                 delete(personHandle);
-                 personHandle = [];
-                 personPosition = [0, -1.5, 0];
-                 logMessage('model deleted');
+            if isgraphics(personHandle)
+                delete(personHandle);
+                personHandle = [];
+                personPosition = [0, -1.5, 0];
+                logMessage('person model deleted');
+            else
+                logMessage('model does not exist');
+            end
+        case 'forcedcollision'
+            objectForceCollision = true;
+        case 'deleteObject'
+            if isgraphics(objectHandle)
+                delete(objectHandle);
+                objectHandle = [];
+                logMessage('object model deleted');
             else
                 logMessage('model does not exist');
             end
@@ -80,6 +93,11 @@ end
 
 function handleLightCurtainDetection()
     logMessage('Sensor Detection: Laser photoelectric beam has been broken!');
+    toggleTimerAndButton();
+end
+
+function handleForcedCollisionDetection()
+    logMessage('Collision Detection: Robot actions stopped to prevent collision')
     toggleTimerAndButton();
 end
 
