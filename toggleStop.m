@@ -13,7 +13,7 @@ function toggleStop(src, event)
 end
 
 function handleUiControlCallback(tag)
-    global t isEmergency personmove estopBtnHandle;
+    global t isEmergency personmove estopBtnHandle personHandle personPosition;
     switch tag
         case 'emergency'
             if isEmergency == false
@@ -32,10 +32,19 @@ function handleUiControlCallback(tag)
                 logMessage('Resume activated');
                 start(t);
             else
-               logMessage('Turn off emergency stop before continuing');
+                logMessage('Turn off emergency stop before continuing');
             end
         case 'person'
             personmove = true;
+        case 'deletePerson'
+            if exist('personHandle', 'var')
+                 delete(personHandle);
+                 personHandle = [];
+                 personPosition = [0, -1.5, 0];
+                 logMessage('model deleted');
+            else
+                logMessage('model does not exist');
+            end
         otherwise
             warning('Unknown UIControl callback source');
     end
@@ -65,7 +74,7 @@ function handleSerialRunCallback()
     elseif isEmergency == false
         logMessage('Run activated');
         start(t);
-        
+
     end
 end
 
