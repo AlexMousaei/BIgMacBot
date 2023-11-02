@@ -1,7 +1,7 @@
 function isTriggered = checkLightCurtain(point, lineStart, lineEnd)
     % Tolerance for floating-point comparisons
     tol = 1e-6;
-    thresholdDistance = 0.1;  % Threshold for checking closeness to the light curtain
+    thresholdDistance = 0.01;  % Threshold for checking closeness to the light curtain
 
     % Find the closest point on the line segment to the given point
     t = dot(point - lineStart, lineEnd - lineStart) / dot(lineEnd - lineStart, lineEnd - lineStart);
