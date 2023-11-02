@@ -1,6 +1,4 @@
 function toggleStop(src, event)
-    global isEmergency
-    isEmergency = false;
     if isa(src, 'matlab.ui.control.UIControl')  % GUI source
         handleUiControlCallback(src.Tag);
     elseif strcmp(src, 'serialSTOP')   % Custom string source (serial source)
@@ -15,7 +13,7 @@ function toggleStop(src, event)
 end
 
 function handleUiControlCallback(tag)
-    global t isEmergency personmove estopBtnHandle ResumebtnHandle;
+    global t isEmergency personmove estopBtnHandle;
     switch tag
         case 'emergency'
             if isEmergency == false
@@ -30,7 +28,7 @@ function handleUiControlCallback(tag)
 
             end
         case 'resume'
-            if isEmergency == false;
+            if isEmergency == false
                 logMessage('Resume activated');
                 start(t);
             else
@@ -45,7 +43,7 @@ function handleUiControlCallback(tag)
 end
 
 function handleSerialStopCallback()
-    global t isEmergency personmove estopBtnHandle ResumebtnHandle;
+    global isEmergency estopBtnHandle;
 
     if isEmergency == true
         isEmergency = false;
@@ -60,7 +58,7 @@ function handleSerialStopCallback()
 end
 
 function handleSerialRunCallback()
-    global t isEmergency personmove estopBtnHandle ResumebtnHandle;
+    global t isEmergency;
 
     if isEmergency == true
         logMessage('Turn off emergency stop before continuing');
@@ -77,7 +75,7 @@ function handleLightCurtainDetection()
 end
 
 function toggleTimerAndButton()
-    global t isEmergency personmove estopBtnHandle ResumebtnHandle;
+    global t isEmergency estopBtnHandle;
 
     if strcmp(t.Running, 'on')
         stop(t);
