@@ -4,16 +4,20 @@ function robotStep(obj, event)
            Paths currentPath currentStep patties...
            robotFigure personmove personHandle...
            personPosition T2 qScaraStart qUR3Start...
-           verticesAtOrigin burgerHandle;
+           verticesAtOrigin burgerHandle objectForceCollision...
+           objectPosition objectHandle;
     
+    % global UR3Bot scaraBot Paths currentPath currentStep patties robotFigure personmove personHandle personPosition T2...
+    %     objectForceCollision objectPosition objectHandle;
+
     figure(robotFigure)
 
     % If person should move
     if personmove
-        deltaMovement = [0, 0.1, 0];  % Moving in the pos y direction
+        deltaMovement = [0, 0.05, 0];  % Moving in the pos y direction
         personPosition = personPosition + deltaMovement;
-
-        if ~exist('personHandle', 'var')
+        if isempty(personHandle) || ~isgraphics(personHandle)
+            logMessage('Person Model Created')
             personHandle = PlaceObject('personMaleCasual.ply', personPosition);
             T2 = trotz(-pi/2);
             RotateObject(personHandle, T2);
@@ -23,7 +27,33 @@ function robotStep(obj, event)
             RotateObject(personHandle, T2);
         end
     end
-    % Check for intersections with the light curtain
+
+    % Place object in environment
+    if objectForceCollision == true
+        if isempty(objectHandle) || ~isgraphics(objectHandle)
+            logMessage('Hand put into environnment');
+            objectHandle = PlaceObject('hand.ply', objectPosition );
+            %[0.25,1.1,1.15]
+            %[-0.5,0.9,1.1]
+            RotateObject(objectHandle, troty(pi/2));
+        end
+    end
+
+    if isgraphics(objectHandle)
+        vertices = get(objectHandle, 'Vertices');
+        collisionThreshold = 0.2;
+        %isCollision = checkCollision(scaraBot, vertices, collisionThreshold);
+        isCollision = checkCollision(UR3Bot, vertices, collisionThreshold);
+
+        if isCollision
+            toggleStop('collisiondetection', []);
+            objectForceCollision = false;
+            return;
+        end
+    end
+
+
+    % Check for intersections with the laser beam
     % Only checking the personhandle
     if isgraphics(personHandle)
         vertices = get(personHandle, 'Vertices');
@@ -31,7 +61,6 @@ function robotStep(obj, event)
             vertex = vertices(v, :);
             isTriggered = checkLightCurtain(vertex, [3, 0, 1], [-3, 0, 1]);
             if isTriggered
-                disp('Intersection detected!');
                 toggleStop('lightcurtaindetection', []);
                 personmove = false;
                 return;
