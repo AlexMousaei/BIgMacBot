@@ -1,7 +1,7 @@
 % Clear MATLAB
 clear all;
 close all;
-clc
+
 
 % % Close Open COM port Connections for arduino estop
 % if ~isempty(instrfind)
@@ -13,17 +13,26 @@ clc
 
 global UR3Bot scaraBot t currentPath...
        currentStep patties robotFigure...
-       personmove  personPosition...
-       isEmergency T2 isSecondLoop pattyIndex;
+       personmove  personPosition personHandle...
+       isEmergency T2 isSecondLoop pattyIndex...
+       objectPosition objectHandle objectForceCollision;
 
 pattyIndex = 1;
 isSecondLoop = false;
 isEmergency = false;
 robotFigure = figure;
+
 personmove = false;
 personPosition = [0, -1.5, 0];
+T2 = trotz(-pi/2); % could delete?
+personHandle = [];
+
+objectPosition = [-0.25, 1.4, 1.1];
+objectHandle = [];
+objectForceCollision = false;
+
 currentPath = 1;
-T2 = trotz(-pi/2);
+
 %Initialise the Robots
 initUR3Pos = transl(0.25, -0.1+1, 0.85);
 UR3Bot = LinearUR3(initUR3Pos);
@@ -49,6 +58,7 @@ InitialiseAnimation();
 % Create the E-stopGui
 eStopGUI();
 % personGUI();
+
 % Initialise the serial communication and pass the state manager
 % s = serialSetup('COM7');
 
