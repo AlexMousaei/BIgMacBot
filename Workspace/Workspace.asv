@@ -46,8 +46,7 @@ classdef Workspace < handle
         warningsignHandle2
         barrierHandle1
         barrierHandle2
-        lightHandle1
-        lightHandle2
+        lightHandle
 
     end
 
@@ -198,11 +197,6 @@ classdef Workspace < handle
             barrierPosition2 = [2.25,-2,0];
             self.barrierHandle2 = PlaceObject(self.barrierFile, barrierPosition2);
 
-            lightPosition1 = [1,-2.55,1.21];
-            self.lightHandle1 = PlaceObject(self.lightFile, lightPosition1);
-            lightPosition2 = [-1.165,0.3,0.7];
-            self.lightHandle2 = PlaceObject(self.lightFile, lightPosition2);
-            RotateObject(self.lightHandle2,trotx(-pi/2));
 
         end
 
