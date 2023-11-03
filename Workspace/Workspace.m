@@ -126,7 +126,7 @@ classdef Workspace < handle
             self.panHandle = PlaceObject(self.panFile,panPosition);
 
             %final patty
-            tray1Position = [-1.1, 0.4+1, 0.93];
+            tray1Position = [-0.9, 0.4+1, 0.93];
             self.tray1Handle = PlaceObject(self.tray1File,tray1Position);
 
             %burger? tray
@@ -144,8 +144,8 @@ classdef Workspace < handle
             T5 = trotz(pi/2);
             RotateObject(self.benchHandle, T5);
             
-            burgerPosition = [-1.85, 0.8, 0.85];
-            self.burgerHandle = PlaceObject(self.burgerFile,burgerPosition);
+            % burgerPosition = [-1.1, 1.4, 0.93];
+            % self.burgerHandle = PlaceObject(self.burgerFile,burgerPosition);
             %
             % sauce1Position = [-0.7, 0.4+1, -1.1];
             % self.sauce1Handle = PlaceObject(self.sauce1File,sauce1Position);
