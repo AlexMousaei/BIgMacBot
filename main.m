@@ -14,7 +14,7 @@ close all;
 global UR3Bot scaraBot t currentPath...
        currentStep patties robotFigure...
        personmove  personPosition personHandle...
-       isEmergency T2 isSecondLoop pattyIndex...
+       isEmergency isSecondLoop pattyIndex...
        objectPosition objectHandle objectForceCollision;
 
 pattyIndex = 1;
@@ -24,7 +24,6 @@ robotFigure = figure;
 
 personmove = false;
 personPosition = [0, -1.5, 0];
-T2 = trotz(-pi/2); % could delete?
 personHandle = [];
 
 objectPosition = [-0.25, 1.4, 1.1];
