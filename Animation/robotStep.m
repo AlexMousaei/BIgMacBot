@@ -18,12 +18,12 @@ function robotStep(obj, event)
         personPosition = personPosition + deltaMovement;
         if isempty(personHandle) || ~isgraphics(personHandle)
             logMessage('Person Model Created')
-            personHandle = PlaceObject('personMaleOld.ply', personPosition);
-            RotateObject(personHandle, trotz(-pi/2));
+            personHandle = PlaceObject('personMaleOldDecimate.ply', personPosition);
+            RotateObject(personHandle, trotz(-pi));
         else
             delete(personHandle);  % Remove the previous model
-            personHandle = PlaceObject('personMaleOld.ply', personPosition);
-            RotateObject(personHandle, trotz(-pi/2));
+            personHandle = PlaceObject('personMaleOldDecimate.ply', personPosition);
+            RotateObject(personHandle, trotz(-pi));
         end
     end
 
