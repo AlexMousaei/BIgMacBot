@@ -54,14 +54,15 @@ patties = Patty(3);
 % Initialise the Robot animation
 InitialiseAnimation();
 
-% Create the E-stopGui
-eStopGUI();
-% personGUI();
-
+% Launch the advanced teach GUIs 
 scaraApp = AdvancedTeachSCARA();
 scaraApp.initializeRobot(scaraBot);
 UR3App = AdvancedTeachUR3();
 UR3App.initializeRobot(UR3Bot);
+
+% Create the E-stopGui
+eStopGUI();
+% personGUI();
 
 % Initialise the serial communication and pass the state manager
 % s = serialSetup('COM7');

@@ -13,7 +13,7 @@ function InitialiseAnimation()
         offset = SE3(transl(0,0,0)*trotx(-pi)); % Ensure an approach from the top
         targetPatty1 = patties.pattyInitialSE3Transform{1}*offset;
         targetPatty2 = patties.pattyInitialSE3Transform{2}*offset;
-        targetPan = SE3(transl(-0.250, 1.418, 0.990))*offset;
+        targetPan = SE3(transl(-0.250, 1.418, 1.05))*offset;
         UR3waypoint1 = SE3(transl(-0.241, 1.355, 1.25))*offset;
         targetTray1 = SE3(transl(-0.853, 1.275, 0.954))*offset;
         scaraWaypoint1 = SE3(transl(-0.83, 1.3, 1.1))*offset;
