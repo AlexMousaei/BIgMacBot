@@ -3,7 +3,7 @@ function robotStep(obj, event)
     global pattyIndex isSecondLoop UR3Bot scaraBot...
            Paths currentPath currentStep patties...
            robotFigure personmove personHandle...
-           personPosition T2 qScaraStart qUR3Start...
+           personPosition qScaraStart qUR3Start...
            verticesAtOrigin burgerHandle objectForceCollision...
            objectPosition objectHandle;
     
@@ -18,13 +18,12 @@ function robotStep(obj, event)
         personPosition = personPosition + deltaMovement;
         if isempty(personHandle) || ~isgraphics(personHandle)
             logMessage('Person Model Created')
-            personHandle = PlaceObject('personMaleCasual.ply', personPosition);
-            T2 = trotz(-pi/2);
-            RotateObject(personHandle, T2);
+            personHandle = PlaceObject('personMaleOld.ply', personPosition);
+            RotateObject(personHandle, trotz(-pi/2));
         else
             delete(personHandle);  % Remove the previous model
-            personHandle = PlaceObject('personMaleCasual.ply', personPosition);
-            RotateObject(personHandle, T2);
+            personHandle = PlaceObject('personMaleOld.ply', personPosition);
+            RotateObject(personHandle, trotz(-pi/2));
         end
     end
 
