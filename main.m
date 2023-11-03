@@ -58,6 +58,11 @@ InitialiseAnimation();
 eStopGUI();
 % personGUI();
 
+scaraApp = AdvancedTeachSCARA();
+scaraApp.initializeRobot(scaraBot);
+UR3App = AdvancedTeachUR3();
+UR3App.initializeRobot(UR3Bot);
+
 % Initialise the serial communication and pass the state manager
 % s = serialSetup('COM7');
 
