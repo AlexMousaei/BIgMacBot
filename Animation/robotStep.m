@@ -4,7 +4,7 @@ function robotStep(obj, event)
            Paths currentPath currentStep patties...
            robotFigure personmove personHandle...
            personPosition qScaraStart qUR3Start...
-           verticesAtOrigin burgerHandle objectForceCollision...
+           burgerHandle objectForceCollision...
            objectPosition objectHandle;
     
     % global UR3Bot scaraBot Paths currentPath currentStep patties robotFigure personmove personHandle personPosition T2...
@@ -73,9 +73,7 @@ function robotStep(obj, event)
                 UR3Bot.model.animate(Paths{currentPath}(currentStep, :));
                 drawnow();
                 if isSecondLoop == true
-                    scaraBot.model.animate(Paths{currentPath+9}(currentStep, :));
-                    patties.pattyModel{pattyIndex-1}.base = scaraBot.model.fkine(scaraBot.model.getpos());
-                    patties.pattyModel{pattyIndex-1}.animate(0);
+                    scaraBot.model.animate(Paths{currentPath+8}(currentStep, :));
                     drawnow();
                 end 
                 currentStep = currentStep + 1;
@@ -92,7 +90,7 @@ function robotStep(obj, event)
                 UR3Bot.model.animate(Paths{currentPath}(currentStep, :));
                 drawnow();
                 if isSecondLoop == true
-                    scaraBot.model.animate(Paths{currentPath+9}(currentStep, :));
+                    scaraBot.model.animate(Paths{currentPath+8}(currentStep, :));
                     patties.pattyModel{pattyIndex-1}.base = scaraBot.model.fkine(scaraBot.model.getpos());
                     patties.pattyModel{pattyIndex-1}.animate(0);
                     drawnow();
@@ -111,7 +109,7 @@ function robotStep(obj, event)
                 UR3Bot.model.animate(Paths{currentPath}(currentStep, :));
                 drawnow();
                 if isSecondLoop == true
-                    scaraBot.model.animate(Paths{currentPath+9}(currentStep, :));
+                    scaraBot.model.animate(Paths{currentPath+8}(currentStep, :));
                     patties.pattyModel{pattyIndex-1}.base = scaraBot.model.fkine(scaraBot.model.getpos());
                     patties.pattyModel{pattyIndex-1}.animate(0);
                     drawnow();
@@ -129,7 +127,7 @@ function robotStep(obj, event)
                 UR3Bot.model.animate(Paths{currentPath}(currentStep, :))
                 drawnow();
                 if isSecondLoop == true
-                    scaraBot.model.animate(Paths{currentPath+9}(currentStep, :));
+                    scaraBot.model.animate(Paths{currentPath+8}(currentStep, :));
                     patties.pattyModel{pattyIndex-1}.base = scaraBot.model.fkine(scaraBot.model.getpos());
                     patties.pattyModel{pattyIndex-1}.animate(0);
                     drawnow();
@@ -146,17 +144,6 @@ function robotStep(obj, event)
             if currentStep <= size(Paths{currentPath}, 1)
                 UR3Bot.model.animate(Paths{currentPath}(currentStep, :))
                 drawnow();
-                if isSecondLoop == true
-                    scaraBot.model.animate(Paths{currentPath+9}(currentStep, :));
-                    patties.pattyModel{pattyIndex-1}.base = scaraBot.model.fkine(scaraBot.model.getpos());
-                    patties.pattyModel{pattyIndex-1}.animate(0);
-                    tr = scaraBot.model.fkine(scaraBot.model.getpos()).T;        
-                    % Apply the transformation to the gripper's vertices
-                    transformedVertices = (tr(1:3, 1:3) * verticesAtOrigin' + tr(1:3, 4))';                
-                    % Update the gripper's position and orientation
-                    set(burgerHandle, 'Vertices', transformedVertices);
-                    drawnow();
-                end
                 currentStep = currentStep + 1;
             else
                 % Reset step and move to next path
@@ -170,17 +157,6 @@ function robotStep(obj, event)
                 patties.pattyModel{pattyIndex}.animate(0);
                 UR3Bot.model.animate(Paths{currentPath}(currentStep, :))
                 drawnow();
-                if isSecondLoop == true
-                    scaraBot.model.animate(Paths{currentPath+9}(currentStep, :));
-                    patties.pattyModel{pattyIndex-1}.base = scaraBot.model.fkine(scaraBot.model.getpos());
-                    patties.pattyModel{pattyIndex-1}.animate(0);
-                    tr = scaraBot.model.fkine(scaraBot.model.getpos()).T;        
-                    % Apply the transformation to the gripper's vertices
-                    transformedVertices = (tr(1:3, 1:3) * verticesAtOrigin' + tr(1:3, 4))';                
-                    % Update the gripper's position and orientation
-                    set(burgerHandle, 'Vertices', transformedVertices);
-                    drawnow();
-                end
                 currentStep = currentStep + 1;
             else
                 % Reset step and move to next path
@@ -194,10 +170,6 @@ function robotStep(obj, event)
                 patties.pattyModel{pattyIndex}.animate(0);
                 UR3Bot.model.animate(Paths{currentPath}(currentStep, :))
                 drawnow();
-                if isSecondLoop == true
-                    scaraBot.model.animate(Paths{currentPath+9}(currentStep, :));
-                    drawnow();
-                end
                 currentStep = currentStep + 1;
             else
                 % Reset step and move to next path
@@ -208,7 +180,6 @@ function robotStep(obj, event)
         case 8
             if currentStep <= size(Paths{currentPath}, 1)
                 UR3Bot.model.animate(Paths{currentPath}(currentStep, :))
-                scaraBot.model.animate(Paths{currentPath+1}(currentStep, :))
                 drawnow();
                 currentStep = currentStep + 1;
             else
